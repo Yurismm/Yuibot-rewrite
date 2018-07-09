@@ -56,6 +56,14 @@ async def osustats(ctx, *, osuplayer : str = None):
 			embed.set_image(url = f"http://lemmmy.pw/osusig/sig.php?colour=hexff66aa&uname={osuplayer}&pp=1&countryrank&flagshadow&flagstroke&opaqueavatar&avatarrounding=5&onlineindicator=undefined&xpbar&xpbarhex")
 			await ctx.send(embed = embed)
 
+@bot.event
+async def on_ready():
+    print("----------------")
+    print("Logged in as:")
+    print("Name : {}".format(bot.user.name))
+    print("ID : {}".format(bot.user.id))
+    print("Py Lib Version: %s"%discord.__version__)
+    print("----------------")
 
 
 @bot.command()
