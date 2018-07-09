@@ -40,6 +40,22 @@ async def ping(ctx):
     em.description = f'{bot.ws.latency * 1000:.4f} ms'
     await ctx.send(embed=em)
 
+@commands.guild_only()
+@bot.command(aliases=['osu'])
+async def osustats(ctx, *, osuplayer : str = None):
+
+		if osuplayer == None:
+			embed = discord.Embed(description = "**"+ ctx.author.name +"** you need to tell me a username!", color = 0xff0000)
+			await ctx.send(embed = embed)
+
+		else:
+			#embed.set_thumbnail(url = ctx.author.avatar_url)
+			embed = discord.Embed(color = 0x00ff00)
+			embed.set_author(name = f"{osuplayer}'s Stats", url = f"https://osu.ppy.sh/u/{osuplayer}", icon_url = "https://s.ppy.sh/images/head-logo.png")
+			embed.set_footer(text = "Osu stats")
+			embed.set_image(url = f"http://lemmmy.pw/osusig/sig.php?colour=hexff66aa&uname={osuplayer}&pp=1&countryrank&flagshadow&flagstroke&opaqueavatar&avatarrounding=5&onlineindicator=undefined&xpbar&xpbarhex")
+			await ctx.send(embed = embed)
+
 
 
 @bot.command()
