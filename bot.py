@@ -5,6 +5,7 @@ import re
 import json
 import logging
 import os
+from discord.ext.commands import errors
 import aiohttp
 import sys
 
@@ -22,6 +23,7 @@ bot = commands.Bot(command_prefix=getprefix)
 bot.db = db.yui
 logging.basicConfig(level=logging.ERROR)
 bot.session = aiohttp.ClientSession(loop=bot.loop)
+
 
 def dev_check(id):
     with open('data/devs.json') as f:
