@@ -6,6 +6,7 @@ import json
 import logging
 import os
 import aiohttp
+import sys
 
 db = AsyncIOMotorClient(os.environ.get('MONGODB'))
 
