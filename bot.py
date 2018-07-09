@@ -23,7 +23,7 @@ bot = commands.Bot(command_prefix=getprefix)
 bot.db = db.yui
 logging.basicConfig(level=logging.ERROR)
 bot.session = aiohttp.ClientSession(loop=bot.loop)
-
+bot.load_extension("cogs.config")
 
 def dev_check(id):
     with open('data/devs.json') as f:
