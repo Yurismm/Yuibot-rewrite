@@ -31,7 +31,8 @@ startup_extensions = [
 
     'cogs.config',
     'cogs.developer',
-    'cogs.Math'
+    'cogs.Math',
+    'cogs.Fun'
 
 ]
 
