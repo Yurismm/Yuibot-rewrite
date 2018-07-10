@@ -27,8 +27,12 @@ logging.basicConfig(level=logging.ERROR)
 bot.session = aiohttp.ClientSession(loop=bot.loop)
 
 
-bot.load_extension("cogs.developer")
-bot.load_extension("cogs.config")
+startup_extensions = [
+
+    'cogs.config',
+    'cogs.developer'
+
+]
 
 def dev_check(id):
     with open('data/devs.json') as f:
@@ -138,6 +142,16 @@ async def divide(ctx,a:int,b:int):
 @bot.command()
 async def greet(ctx):
     await ctx.send(":wave: Henlo")
+
+
+if __name__ == "__main__":
+    for extension in startup_extensions:
+        try:
+            bot.load_extension(extension)
+            print('Loaded extension: {}'.format(extension))
+        except Exception as e:
+            exc = '{}: {}'.format(type(e).__name__, e)
+            print('Failed to load extension {}\n{}'.format(extension, exc))
 
 
 if not os.environ.get('TOKEN'):
