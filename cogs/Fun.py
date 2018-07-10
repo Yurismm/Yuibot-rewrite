@@ -43,7 +43,6 @@ class Fun:
         meme_title = meme['title']
         em = discord.Embed(color=discord.Color(value=0x00ff00), title=meme_title)
         em.set_image(url=meme_img)
-        em.set_footer("Join the discord server! https://discord.gg/p2gW2Fc")
         await ctx.send(embed=em)
 
 
