@@ -88,7 +88,7 @@ if 'TOKEN' in os.environ:
         else:
             value = stdout.getvalue()
             if TOKEN in value:
-            value = value.replace(TOKEN,"i dont think so")
+                value = value.replace(TOKEN,"i dont think so!")
             if ret is None:
                 if value:
                     try:
