@@ -4,6 +4,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import re
 import json
 import logging
+import inspect
 import os
 from discord.ext.commands import errors
 import aiohttp
@@ -55,6 +56,27 @@ async def osustats(ctx, *, osuplayer : str = None):
 			embed.set_footer(text = "Osu stats")
 			embed.set_image(url = f"http://lemmmy.pw/osusig/sig.php?colour=hexff66aa&uname={osuplayer}&pp=1&countryrank&flagshadow&flagstroke&opaqueavatar&avatarrounding=5&onlineindicator=undefined&xpbar&xpbarhex")
 			await ctx.send(embed = embed)
+
+
+@bot.event
+async def on_guild_join(guild):
+    channel = bot.get_channel(466033489452466186)
+    embed = discord.Embed(title='New Server!', description=f'Server Name: {guild.name} | Server Num {len(bot.guilds)}', color=discord.Color.green())
+    embed.set_thumbnail(url=guild.icon_url)
+    embed.set_footer(text=f"Server ID: {guild.id}")
+    embed.set_author(name=f"Owner: {guild.owner} | ID: {guild.owner.id}", icon_url=guild.owner.avatar_url)
+    await channel.send(embed=embed)
+
+
+
+@bot.event
+async def on_guild_remove(guild):
+    channel = bot.get_channel(466033489452466186)
+    embed = discord.Embed(title='Removed Server from server', description=f'Server Name: {guild.name} | Server Num {len(bot.guilds)}', color=discord.Color.red())
+    embed.set_thumbnail(url=guild.icon_url)
+    embed.set_footer(text=f"Server ID: {guild.id}")
+    embed.set_author(name=f"Owner: {guild.owner} | ID: {guild.owner.id}", icon_url=guild.owner.avatar_url)
+    await channel.send(embed=embed)
 
 @bot.event
 async def on_ready():
