@@ -5,7 +5,6 @@ import idioticapi
 import aiohttp
 import random
 import json
-from PIL import Image, ImageDraw, ImageFont
 import textwrap
 from discord.ext import commands
 import base64
