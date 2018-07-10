@@ -22,8 +22,12 @@ async def getprefix(bot, message):
 
 bot = commands.Bot(command_prefix=getprefix)
 bot.db = db.yui
+bot._last_result = None
 logging.basicConfig(level=logging.ERROR)
 bot.session = aiohttp.ClientSession(loop=bot.loop)
+
+
+bot.load_extension("cogs.developer")
 bot.load_extension("cogs.config")
 
 def dev_check(id):
@@ -114,7 +118,7 @@ async def add(ctx, a: int, b: int):
 
 @bot.command()
 async def null(ctx):
-    await ctx.send(“https://cdn.discordapp.com/attachments/465998638783528961/465998665480142858/image.png”)
+    await ctx.send("https://cdn.discordapp.com/attachments/465998638783528961/465998665480142858/image.png")
 
 
 
@@ -123,11 +127,11 @@ async def multiply(ctx, a: int, b: int):
     await ctx.send(a*b)
 
 @bot.command()
-async def subtract(ctx.a: int,b:int):
+async def subtract(ctx,a: int,b:int):
     await ctx.send(a-b)
 
 @bot.command()
-async def divide(ctx.a:int,b:int):
+async def divide(ctx,a:int,b:int):
     await ctx.send(a/b)
 
 
