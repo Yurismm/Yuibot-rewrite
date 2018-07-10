@@ -9,7 +9,6 @@ import textwrap
 from discord.ext import commands
 import base64
 import urllib
-import requests
 import json
 from random import randint
 from discord.ext import commands
