@@ -32,9 +32,6 @@ class developer:
             return '\n'.join(content.split('\n')[1:-1])
         return content.strip('` \n')
 
-if 'TOKEN' in os.environ:
-    heroku = True
-    TOKEN = os.environ['TOKEN']
 
     @commands.command(name='eval')
     async def _eval(self, ctx, *, body):
@@ -89,8 +86,6 @@ if 'TOKEN' in os.environ:
             err = await ctx.send(f'```py\n{value}{traceback.format_exc()}\n```')
         else:
             value = stdout.getvalue()
-            if TOKEN in value:
-                value = value.replace(TOKEN,"[lol]")
             if ret is None:
                 if value:
                     try:
