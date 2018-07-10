@@ -8,7 +8,10 @@ import os
 from discord.ext.commands import errors
 import aiohttp
 import sys
+import re
 
+def special_match(strg, search=re.compile(r'[+\-*/0-9 ]').search):
+    return not bool(search(strg))
 db = AsyncIOMotorClient(os.environ.get('MONGODB'))
 
 
@@ -86,28 +89,30 @@ async def presence(ctx, Type=None, *, thing=None):
       else:
         await ctx.send('Usage: *presence [game/stream] [msg]')
 
-@bot.command()
-async def add(ctx, a: int, b: int):
-    await ctx.send(a+b)
+
 
 @bot.command()
 async def null(ctx):
-    await ctx.send(“https://cdn.discordapp.com/attachments/465998638783528961/465998665480142858/image.png”)
+    await ctx.send('https://cdn.discordapp.com/attachments/465998638783528961/465998665480142858/image.png')
 
 
 
 @bot.command()
-async def multiply(ctx, a: int, b: int):
-    await ctx.send(a*b)
-
-@bot.command()
-async def subtract(ctx.a: int,b:int):
-    await ctx.send(a-b)
-
-@bot.command()
-async def divide(ctx.a:int,b:int):
-    await ctx.send(a/b)
-
+async def calc(ctx, *args):
+    if args == ():
+        return
+    else:
+        arguments = ''
+        for argument in args:
+            arguments += str(argument) + ' '
+        arguments = arguments[:-1]
+    if special_match(arguments):
+        try:
+            ctx.send(eval(arguments))
+        except e:
+            ctx.send(e)
+    else:
+        ctx.send('Error: not a math expression')
 
 @bot.command()
 async def greet(ctx):
@@ -116,4 +121,4 @@ async def greet(ctx):
 
 if not os.environ.get('TOKEN'):
     print("no token found REEEE!")
-bot.run(os.environ.get('TOKEN').strip('"'))
+bot.run(os.environ.get('NDU2OTEwNzYzNTA0Njk3MzYz.DiUeKA.D1dsn9').strip('"'))
