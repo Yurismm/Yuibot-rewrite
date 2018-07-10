@@ -137,7 +137,7 @@ async def calc(ctx, *args):
     if special_match(arguments):
         try:
             ctx.send(eval(arguments))
-        except e:
+        except Exception as e:
             ctx.send(e)
     else:
         ctx.send('Error: not a math expression')
