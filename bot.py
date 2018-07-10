@@ -30,7 +30,8 @@ bot.session = aiohttp.ClientSession(loop=bot.loop)
 startup_extensions = [
 
     'cogs.config',
-    'cogs.developer'
+    'cogs.developer',
+    'cogs.Math'
 
 ]
 
@@ -116,27 +117,12 @@ async def presence(ctx, Type=None, *, thing=None):
       else:
         await ctx.send('Usage: *presence [game/stream] [msg]')
 
-@bot.command()
-async def add(ctx, a: int, b: int):
-    await ctx.send(a+b)
 
 @bot.command()
 async def null(ctx):
     await ctx.send("https://cdn.discordapp.com/attachments/465998638783528961/465998665480142858/image.png")
 
 
-
-@bot.command()
-async def multiply(ctx, a: int, b: int):
-    await ctx.send(a*b)
-
-@bot.command()
-async def subtract(ctx,a: int,b:int):
-    await ctx.send(a-b)
-
-@bot.command()
-async def divide(ctx,a:int,b:int):
-    await ctx.send(a/b)
 
 
 @bot.command()
