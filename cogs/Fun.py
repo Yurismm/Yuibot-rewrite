@@ -353,4 +353,4 @@ class Fun:
 
 
 def setup(bot):
-    bot.add_cog(fun(bot))
+    bot.add_cog(Fun(bot))
