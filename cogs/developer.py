@@ -6,6 +6,7 @@ from contextlib import redirect_stdout
 import inspect
 import io
 import json
+import os
 
 class developer:
     '''
@@ -22,6 +23,9 @@ class developer:
                 return True
         return False
 
+if 'TOKEN' in os.environ:
+    heroku = True
+    TOKEN = os.environ['TOKEN']
 
     def cleanup_code(self, content):
         """Automatically removes code blocks from the code."""
@@ -83,6 +87,8 @@ class developer:
             err = await ctx.send(f'```py\n{value}{traceback.format_exc()}\n```')
         else:
             value = stdout.getvalue()
+            if TOKEN in value:
+            value = value.replace(TOKEN,"i dont think so")
             if ret is None:
                 if value:
                     try:
