@@ -118,7 +118,7 @@ async def presence(ctx, Type=None, *, thing=None):
       else:
         await ctx.send('Usage: *presence [game/stream] [msg]')
 
- @bot.command()
+@bot.command()
  async def greet(ctx):
       await ctx.send(":wave: Henlo")
 
