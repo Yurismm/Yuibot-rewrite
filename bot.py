@@ -118,14 +118,6 @@ async def presence(ctx, Type=None, *, thing=None):
       else:
         await ctx.send('Usage: *presence [game/stream] [msg]')
 
-
-@bot.command()
-async def sexuals():
-    embed = discord.Embed(
-        title = "List of sexuals"
-        description = "A list of the ____Sexuals (eg, Gay. Lesbian,etc)((this is a test for an embed, if it works ill work on it more)))"
-        colour = discord.colour.green
-    )
     
 
 
