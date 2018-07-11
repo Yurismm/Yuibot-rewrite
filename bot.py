@@ -120,7 +120,7 @@ async def presence(ctx, Type=None, *, thing=None):
 
 
 @bot.command()
-async def null(ctx):
+async def null(ctx,):
     await ctx.send("https://cdn.discordapp.com/attachments/465998638783528961/465998665480142858/image.png")
 
 
