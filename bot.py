@@ -121,10 +121,6 @@ async def presence(ctx, Type=None, *, thing=None):
     
 
 
-@bot.command()
-async def greet(ctx):
-    await ctx.send(":wave: Henlo")
-
 
 if __name__ == "__main__":
     for extension in startup_extensions:
