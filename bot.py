@@ -120,10 +120,13 @@ async def presence(ctx, Type=None, *, thing=None):
 
 
 @bot.command()
-async def null(ctx,):
-    await ctx.send("https://cdn.discordapp.com/attachments/465998638783528961/465998665480142858/image.png")
-
-
+async def sexuals():
+    embed = discord.Embed(
+        title = "List of sexuals"
+        description = "A list of the ____Sexuals (eg, Gay. Lesbian,etc)((this is a test for an embed, if it works ill work on it more)))"
+        colour = discord.colour.green
+    )
+    
 
 
 @bot.command()
