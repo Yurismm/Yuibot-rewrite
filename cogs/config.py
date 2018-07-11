@@ -11,7 +11,7 @@ class config:
         self.db = self.bot.db
 
     async def save_prefix(self, prefix, guildID, ctx):
-        await self.bot.db.prefix.update_one({"id": str(ctx.guild.id)}, {"$set": {"prefix": prefix}}, upsert=True)
+        await self.bot.db.config.update_one({"_id": ctx.guild.id}, {"$set": {"prefix": prefix}}, upsert=True)
 
     @commands.command()
     @commands.has_permissions(manage_messages=True)
