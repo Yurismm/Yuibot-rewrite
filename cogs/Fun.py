@@ -347,6 +347,10 @@ class Fun:
         except Exception as e:
             await ctx.send(f"An error occured with IdioticAPI. \nMore details: \n{e}")
 
+    @commands.command()
+    async def greet(ctx):
+        await ctx.send(":wave: Henlo")
+
 
 
 
