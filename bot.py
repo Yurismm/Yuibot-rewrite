@@ -97,7 +97,10 @@ async def on_ready():
     print("Py Lib Version: %s"%discord.__version__)
     print("----------------")
 
-
+@bot.event
+async def on_ready():
+    bot.change_status('idle')
+    
 @bot.command()
 async def presence(ctx, Type=None, *, thing=None):
     """Change the bots presence"""
