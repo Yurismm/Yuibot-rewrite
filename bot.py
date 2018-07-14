@@ -110,7 +110,7 @@ async def presence(ctx, Type=None, *, thing=None):
         await ctx.send('Usage: *presence [game/stream] [msg]')
     else:
       if Type.lower() == 'stream':
-        await bot.change_presence(activity=discord.Game(name=thing,type=1, url='https://www.twitch.tv/monstercat'), status='online')
+        await bot.change_presence(activity=discord.Streaming(name=thing,type=1, url='https://www.twitch.tv/monstercat')
         await ctx.send(f'I am now streaming {thing}!')
       elif Type.lower() == 'game':
         await bot.change_presence(activity=discord.Game(name=thing))
