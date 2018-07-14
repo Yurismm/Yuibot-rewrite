@@ -99,8 +99,8 @@ async def on_ready():
 
 @bot.event
 async def on_ready():
-    bot.change_status('idle')
-    
+    await bot.change_presence(status=discord.Status.idle)
+
 @bot.command()
 async def presence(ctx, Type=None, *, thing=None):
     """Change the bots presence"""
