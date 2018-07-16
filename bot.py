@@ -101,25 +101,9 @@ async def on_ready():
 async def on_ready():
     await bot.change_presence(status=discord.Status.idle)
 
-@bot.command()
-async def presence(ctx, Type=None, *, thing=None):
-    """Change the bots presence"""
-    if not dev_check(ctx.author.id):
-        return await ctx.send("You cannot use this because you are not a developer.")
-    if Type is None:
-        await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
-    else:
-      if Type.lower() == 'stream':
-        await bot.change_presence(activity=discord.Streaming(name=thing, url='https://www.twitch.tv/monstercat'))
-        await ctx.send(f'I am now streaming {thing}!')
-      elif Type.lower() == 'game':
-        await bot.change_presence(activity=discord.Game(name=thing))
-        await ctx.send(f'I am now playing {thing}!')
-      elif Type.lower() == 'clear':
-        await bot.change_presence(activity=None)
-        await ctx.send('Cleared Presence')
-      else:
-        await ctx.send('Usage: *presence [game/stream] [msg]')
+
+
+
 
 
 
