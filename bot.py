@@ -117,7 +117,7 @@ async def presence(ctx, Type=None, *, thing=None):
         await ctx.send(f'I am now playing {thing}!')
       elif Type.lower() == 'clear':
         await bot.change_presence(activity=None)
-        await ctx.send('Cleared Presence')
+        await ctx.send("Stopped playing/streaming")
       else:
         await ctx.send('Usage: *presence [game/stream] [msg]')
 
