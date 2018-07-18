@@ -79,7 +79,7 @@ class Fun:
         await ctx.trigger_typing()
         user = ctx.author if user is None else user
         try:
-            await ctx.send(f"**{user.name}** went missing!", file=discord.File(await self.client.missing(user.avatar_url, user.name), "missing.png"))
+            await ctx.send(f"**{user.name}** is missing!", file=discord.File(await self.client.missing(user.avatar_url, user.name), "missing.png"))
         except Exception as e:
             await ctx.send(f"An error occured with IdioticAPI. \nMore details: \n{e}")
 
