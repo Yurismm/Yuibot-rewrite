@@ -121,6 +121,15 @@ async def presence(ctx, Type=None, *, thing=None):
         await ctx.send('Usage: *presence [game/stream] [msg]')
 
 
+@bot.command(pass_context=True)
+async def invite(ctx):
+        invitelinknew = await bot.create_invite(destination = ctx.message.channel, xkcd = True, max_uses = 100)
+        embedMsg=discord.Embed(color=0xf41af4)
+        embedMsg.add_field(name="Discord Invite Link", value=invitelinknew)
+        embedMsg.set_footer(text="Discord server invited link.")
+        await bot.send_message(ctx.message.channel, embed=embedMsg)
+
+
 
 
 if __name__ == "__main__":
