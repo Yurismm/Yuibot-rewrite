@@ -31,6 +31,13 @@ class Math:
     async def square(self, ctx,a:int):
         await ctx.send(a*a)
 
+    @commands.command()
+    async def half(self,ctx,a:int):
+        await ctx.send(a/2)
+
+   
+
+
 
 
 
