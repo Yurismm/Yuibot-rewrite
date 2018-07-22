@@ -37,7 +37,7 @@ class Math:
 
 
     @commands.command()
-    async def double(Self,cyx,a:int):
+    async def double(self,cyx,a:int):
         await ctx.send(a*2)
    
 
