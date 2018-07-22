@@ -1,5 +1,4 @@
 import discord
-import math
 from discord.ext import commands
 
 class Math:
@@ -39,6 +38,7 @@ class Math:
     @commands.command()
     async def double(self,ctx,a:int):
         await ctx.send(a*2)
+        
    
 
 
