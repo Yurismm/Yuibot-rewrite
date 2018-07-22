@@ -1,4 +1,5 @@
 import discord
+import math
 from discord.ext import commands
 
 class Math:
@@ -25,6 +26,17 @@ class Math:
     @commands.command()
     async def divide(self, ctx,a:int,b:int):
         await ctx.send(a/b)
+
+    @commands.command()
+    async def square(self, ctx,a:int):
+        await ctx.send(a*a)
+
+    @commands.command()
+    async def squareroot(self,ctx,x:int)
+        await ctx.send(math.sqrt(x))
+
+
+
 
 
 
