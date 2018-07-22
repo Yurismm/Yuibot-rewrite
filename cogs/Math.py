@@ -31,10 +31,6 @@ class Math:
     async def square(self, ctx,a:int):
         await ctx.send(a*a)
 
-    @commands.command()
-    async def squareroot(self,ctx,x:int)
-        await ctx.send(math.sqrt(x))
-
 
 
 
