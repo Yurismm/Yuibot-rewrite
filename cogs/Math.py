@@ -35,6 +35,10 @@ class Math:
     async def half(self,ctx,a:int):
         await ctx.send(a/2)
 
+
+    @commands.command()
+    async def double(Self,cyx,a:int):
+        await ctx.send(a*2)
    
 
 
