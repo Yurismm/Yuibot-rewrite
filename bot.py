@@ -120,6 +120,12 @@ async def presence(ctx, Type=None, *, thing=None):
       else:
         await ctx.send('Usage: *presence [game/stream] [msg]')
 
+@bot.command(pass_context=True)
+async def invite(context):
+	invite = await client.create_invite(context.message.server,max_uses=1,xkcd=True)
+	await client.send_message(context.message.author,"Your invite URL is {}".format(invite.url))
+	await client.say ("Check Your Dm's :wink: ")
+
 
 
 
