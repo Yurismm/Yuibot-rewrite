@@ -111,6 +111,12 @@ async def presence(ctx, Type=None, *, thing=None):
       if Type.lower() == 'stream':
         await bot.change_presence(activity=discord.Streaming(name=thing, url='https://www.twitch.tv/monstercat'))
         await ctx.send(f'I am now streaming {thing}!')
+      elif Type.lower() == 'watch':
+          await bot.change_presence(discord.Activity(type=watching, name=thing))
+          await ctx.send(f'I am now watching {thing}')
+      elif Type.lower() == 'listen':
+          await bot.change_presence(discord.Activity(type=listening, name=thing))
+          await ctx.send(f'I am now listening to {thing}')
       elif Type.lower() == 'game':
         await bot.change_presence(activity=discord.Game(name=thing))
         await ctx.send(f'I am now playing {thing}!')
@@ -118,14 +124,7 @@ async def presence(ctx, Type=None, *, thing=None):
         await bot.change_presence(activity=None)
         await ctx.send("Stopped playing/streaming")
       else:
-        await ctx.send('Usage: *presence [game/stream] [msg]')
-
-@bot.command(pass_context=True)
-async def invite(context):
-	invite = await bot.create_invite(context.message.server,max_uses=1,xkcd=True)
-	await ctx.send(context.message.author,"Your invite URL is {}".format(invite.url))
-	await ctx.send("Check Your Dm's :wink: ")
-
+        await ctx.send('Usage: *presence [game/stream/watch/listen] [msg]')
 
 if __name__ == "__main__":
     for extension in startup_extensions:
