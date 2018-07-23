@@ -112,10 +112,10 @@ async def presence(ctx, Type=None, *, thing=None):
         await bot.change_presence(activity=discord.Streaming(name=thing, url='https://www.twitch.tv/monstercat'))
         await ctx.send(f'I am now streaming {thing}!')
       elif Type.lower() == 'watch':
-          await bot.change_presence(activity=discord.Activity(type=watching)(name=thing))
+          await bot.change_presence(activity=discord.Activity(type=("watching")(name=thing))
           await ctx.send(f'I am now watching {thing}')
       elif Type.lower() == 'listen':
-          await bot.change_presence(activity=discord.Activity(type=listening)(name=thing))
+          await bot.change_presence(activity=discord.Activity(type=("listening")(name=thing))
           await ctx.send(f'I am now listening to {thing}')
       elif Type.lower() == 'game':
         await bot.change_presence(activity=discord.Game(name=thing))
