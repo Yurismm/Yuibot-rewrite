@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-
+# I havent added this because it could be slightly buggy... ill add it when i finish looking and changing things on it 
 class QuickPoll:
     """"""
 
