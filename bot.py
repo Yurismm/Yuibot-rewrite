@@ -9,6 +9,9 @@ import os
 from discord.ext.commands import errors
 import aiohttp
 import sys
+import rule34
+
+
 
 db = AsyncIOMotorClient(os.environ.get('MONGODB'))
 
@@ -59,7 +62,7 @@ async def osustats(ctx, *, osuplayer : str = None):
 			await ctx.send(embed = embed)
 
 		else:
-			#embed.set_thumbnail(url = ctx.author.avatar_url)
+			embed.set_thumbnail(url = ctx.author.avatar_url)
 			embed = discord.Embed(color = 0x00ff00)
 			embed.set_author(name = f"{osuplayer}'s Stats", url = f"https://osu.ppy.sh/u/{osuplayer}", icon_url = "https://s.ppy.sh/images/head-logo.png")
 			embed.set_footer(text = "Osu stats")
@@ -120,6 +123,14 @@ async def presence(ctx, Type=None, *, thing=None):
       else:
         await ctx.send('Usage: *presence [game/stream/watch/listen] [msg] OR *presence clear')
 
+
+            
+
+
+
+             
+ 
+
 if __name__ == "__main__":
     for extension in startup_extensions:
         try:
@@ -128,6 +139,10 @@ if __name__ == "__main__":
         except Exception as e:
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension {}\n{}'.format(extension, exc))
+
+
+
+        
 
 
 if not os.environ.get('TOKEN'):
