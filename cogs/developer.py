@@ -7,6 +7,7 @@ import inspect
 import io
 import json
 import os
+import rule34
 
 class developer:
     '''
