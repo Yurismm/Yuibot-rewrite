@@ -109,7 +109,7 @@ async def presence(ctx, Type=None, *, thing=None):
     if not dev_check(ctx.author.id):
         return await ctx.send("You cannot use this because you are not a developer.")
     if Type is None:
-        await ctx.send('Usage: *presence [game/stream/watch/listen] [msg] OR *presence clear')
+        await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
     else:
       if Type.lower() == 'stream':
         await bot.change_presence(activity=discord.Streaming(name=thing, url='https://www.twitch.tv/monstercat'))
@@ -121,7 +121,7 @@ async def presence(ctx, Type=None, *, thing=None):
         await bot.change_presence(activity=None)
         await ctx.send("Stopped playing/streaming")
       else:
-        await ctx.send('Usage: *presence [game/stream/watch/listen] [msg] OR *presence clear')
+        await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
 
 
             

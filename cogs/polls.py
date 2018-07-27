@@ -3,10 +3,10 @@ from discord.ext import commands
 
 # I havent added this because it could be slightly buggy... ill add it when i finish looking and changing things on it 
 class QuickPoll:
-    """"""
+    '''
+    Poll commands
+    '''
 
-    def __init__(self, bot):
-        self.bot = bot
 
     @commands.command(pass_context=True)
     async def quickpoll(self, ctx, question, *options: str):

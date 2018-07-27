@@ -38,6 +38,10 @@ class Math:
     @commands.command()
     async def double(self,ctx,a:int):
         await ctx.send(a*2)
+
+    @commands.command()
+    async def urAnus(self,ctx,a:int)
+        await ctx.send(a*8/6*4/3*33/4*9/2-3)
         
    
 
