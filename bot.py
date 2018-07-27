@@ -9,7 +9,6 @@ import os
 from discord.ext.commands import errors
 import aiohttp
 import sys
-import rule34
 
 
 
