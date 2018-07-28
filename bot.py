@@ -5,6 +5,7 @@ import re
 import json
 import logging
 import inspect
+import traceback
 import os
 from discord.ext.commands import errors
 import aiohttp
@@ -52,6 +53,20 @@ async def ping(ctx):
     em.title = "Pong!"
     em.description = f'{bot.ws.latency * 1000:.4f} ms'
     await ctx.send(embed=em)
+
+
+@bot.event
+async def on_command_error(ctx, error):
+    trace = ''.join(traceback.format_exception(type(error), error, error.__traceback__))
+    erroremb = discord.Embed(description=f'```py\n{trace}\n```', color=discord.Color.red(), timestamp=ctx.message.created_at)
+    erroremb.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+    erroremb.add_field(name='Message Content', value=ctx.message.content)
+    erroremb.add_field(name="Server ID", value=ctx.guild.id)
+    erroremb.add_field(name = "Server", value = ctx.guild)
+    erroremb.add_field(name='Location', value=f'#{ctx.channel.name} ({ctx.channel.id})')
+
+    await bot.get_channel(472783730872811529).send(embed=erroremb)	
+
 
 @commands.guild_only()
 @bot.command(aliases=['osu'])
