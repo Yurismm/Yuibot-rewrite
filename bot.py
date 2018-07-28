@@ -1,10 +1,12 @@
 import discord
+from utils.checks import *
 from discord.ext import commands
 from motor.motor_asyncio import AsyncIOMotorClient
 import re
 import json
 import logging
 import inspect
+import traceback
 import os
 from discord.ext.commands import errors
 import aiohttp
@@ -35,7 +37,8 @@ startup_extensions = [
     'cogs.config',
     'cogs.developer',
     'cogs.Math',
-    'cogs.Fun'
+    'cogs.Fun',
+    'cogs.economy'
 ]
 
 def dev_check(id):
@@ -52,6 +55,20 @@ async def ping(ctx):
     em.title = "Pong!"
     em.description = f'{bot.ws.latency * 1000:.4f} ms'
     await ctx.send(embed=em)
+
+
+@bot.event
+async def on_command_error(ctx, error):
+    trace = ''.join(traceback.format_exception(type(error), error, error.__traceback__))
+    erroremb = discord.Embed(description=f'```py\n{trace}\n```', color=discord.Color.red(), timestamp=ctx.message.created_at)
+    erroremb.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+    erroremb.add_field(name='Message Content', value=ctx.message.content)
+    erroremb.add_field(name="Server ID", value=ctx.guild.id)
+    erroremb.add_field(name = "Server", value = ctx.guild)
+    erroremb.add_field(name='Location', value=f'#{ctx.channel.name} ({ctx.channel.id})')
+
+    await bot.get_channel(472783730872811529).send(embed=erroremb)	
+
 
 @commands.guild_only()
 @bot.command(aliases=['osu'])
@@ -103,10 +120,9 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.idle)
 
 @bot.command()
+@is_dev()
 async def presence(ctx, Type=None, *, thing=None):
     """Change the bots presence"""
-    if not dev_check(ctx.author.id):
-        return await ctx.send("You cannot use this because you are not a developer.")
     if Type is None:
         await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
     else:
