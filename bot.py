@@ -9,6 +9,7 @@ import os
 from discord.ext.commands import errors
 import aiohttp
 import sys
+import time
 
 
 
@@ -61,7 +62,7 @@ async def osustats(ctx, *, osuplayer : str = None):
             await ctx.send(embed = embed)
 
         else:
-            #embed.set_thumbnail(url = ctx.author.avatar_url)
+            # embed.set_thumbnail(url = ctx.author.avatar_url)
             embed = discord.Embed(color = 0x00ff00)
             embed.set_author(name = f"{osuplayer}'s Stats", url = f"https://osu.ppy.sh/u/{osuplayer}", icon_url = "https://s.ppy.sh/images/head-logo.png")
             embed.set_footer(text = "Osu stats")
