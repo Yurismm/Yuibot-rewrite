@@ -1,4 +1,5 @@
 import discord
+from utils.checks import *
 from discord.ext import commands
 from motor.motor_asyncio import AsyncIOMotorClient
 import re
@@ -118,10 +119,9 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.idle)
 
 @bot.command()
+@is_dev()
 async def presence(ctx, Type=None, *, thing=None):
     """Change the bots presence"""
-    if not dev_check(ctx.author.id):
-        return await ctx.send("You cannot use this because you are not a developer.")
     if Type is None:
         await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
     else:

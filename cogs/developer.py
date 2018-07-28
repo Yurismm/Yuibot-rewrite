@@ -4,6 +4,7 @@ import traceback
 import textwrap
 from contextlib import redirect_stdout
 import inspect
+from utils.checks import *
 import io
 import json
 import os
@@ -35,10 +36,9 @@ class developer:
 
 
     @commands.command(name='eval')
+    @is_dev()
     async def _eval(self, ctx, *, body):
         """Evaluates python code"""
-        if not self.dev_check(ctx.author.id):
-            return await ctx.send("You cannot use this because you are not a developer.")
         env = {
             'bot': self.bot,
             'ctx': ctx,
