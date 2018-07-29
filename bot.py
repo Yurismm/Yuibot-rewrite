@@ -19,9 +19,9 @@ db = AsyncIOMotorClient(os.environ.get('MONGODB'))
 
 
 async def getprefix(bot, message):
-    if isinstance(message.channel, discord.DMChannel): return "*"
+    if isinstance(message.channel, discord.DMChannel): return '&'
     x = await bot.db.config.find_one({"_id": message.guild.id})
-    pre = x['prefix'] if x is not None else '*'
+    pre = x['prefix'] if x is not None else '&'
     match = re.match(f"<@!?{bot.user.id}> ", message.content)
     return match.group() if match else pre
 
