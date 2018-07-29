@@ -21,7 +21,7 @@ class developer:
     def dev_check(self, id):
         with open('data/devs.json') as f:
             devs = json.load(f)
-            if id in devs:
+            if id in devs:2
                 return True
         return False
 
