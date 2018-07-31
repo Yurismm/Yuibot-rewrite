@@ -18,12 +18,6 @@ class developer:
     def __init__(self, bot):
         self.bot = bot
 
-    def dev_check(self, id):
-        with open('data/devs.json') as f:
-            devs = json.load(f)
-            if id in devs:
-                return True
-        return False
 
 
 
