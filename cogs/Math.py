@@ -39,7 +39,11 @@ class Math:
     async def double(self,ctx,a:int):
         await ctx.send(a*2)
 
-        
+    @commands.command()
+    async def triple(self,ctx,a:int):
+        await ctx.send(a*3)
+
+
 
 
 
