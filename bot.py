@@ -11,6 +11,7 @@ import os
 from discord.ext.commands import errors
 import aiohttp
 import sys
+import time
 
 
 
@@ -18,9 +19,9 @@ db = AsyncIOMotorClient(os.environ.get('MONGODB'))
 
 
 async def getprefix(bot, message):
-    if isinstance(message.channel, discord.DMChannel): return "*"
+    if isinstance(message.channel, discord.DMChannel): return '&'
     x = await bot.db.config.find_one({"_id": message.guild.id})
-    pre = x['prefix'] if x is not None else '*'
+    pre = x['prefix'] if x is not None else '&'
     match = re.match(f"<@!?{bot.user.id}> ", message.content)
     return match.group() if match else pre
 
@@ -78,7 +79,7 @@ async def osustats(ctx, *, osuplayer : str = None):
             await ctx.send(embed = embed)
 
         else:
-            #embed.set_thumbnail(url = ctx.author.avatar_url)
+            # embed.set_thumbnail(url = ctx.author.avatar_url)
             embed = discord.Embed(color = 0x00ff00)
             embed.set_author(name = f"{osuplayer}'s Stats", url = f"https://osu.ppy.sh/u/{osuplayer}", icon_url = "https://s.ppy.sh/images/head-logo.png")
             embed.set_footer(text = "Osu stats")
