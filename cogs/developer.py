@@ -112,10 +112,7 @@ class developer:
         else:
             await ctx.message.add_reaction('\u2705')
 
-    @commands.command()
-    async def afk(self,ctx,a):
-        '''user is AFK: reason'''
-        await ctx.send(ctx.author.name 'is AFK:' a)
+
 
 
 
