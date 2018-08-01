@@ -2,7 +2,8 @@ import discord
 from discord.ext import commands
 
 # I havent added this because it could be slightly buggy... ill add it when i finish looking and changing things on it
-class QuickPoll:
+# Added for testing
+class polls:
     '''
     Poll commands
     '''
@@ -60,4 +61,4 @@ class QuickPoll:
         await self.bot.say(output)
 
 def setup(bot):
-    bot.add_cog(QuickPoll(bot))
+    bot.add_cog(polls(bot))

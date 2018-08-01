@@ -15,7 +15,7 @@ class useful:
         """Makes me say something"""
         if not saymsg:
             return await self.bot.say('Please provide something for the bot to say.')
-            await self.bot.say(saymsg)
+        await self.bot.say(saymsg)
 
 
 
