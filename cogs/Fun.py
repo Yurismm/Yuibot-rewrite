@@ -64,7 +64,7 @@ class Fun:
         if user is None:
             await ctx.send("Gotta tag someone that you wanna slap!")
         else:
-            if user is <@456910763504697363>:
+            if user is '@Yui Funami#1826'
                             await ctx.trigger_typing()
                             try:
 
