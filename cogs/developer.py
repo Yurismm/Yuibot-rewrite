@@ -112,6 +112,13 @@ class developer:
         else:
             await ctx.message.add_reaction('\u2705')
 
+    @commands.command()
+    async def afk(self,ctx,a):
+            
+        await ctx.send(ctx.author.name 'is AFK:' a)
+
+
+
 # Setup bot
 def setup(bot):
     bot.add_cog(developer(bot))
