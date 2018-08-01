@@ -11,7 +11,6 @@ import base64
 import urllib
 import json
 from random import randint
-from discord.ext import commands
 
 
 
@@ -349,7 +348,7 @@ class Fun:
 
     @commands.command()
     async def greet(ctx):
-        await ctx.send(":wave: Henlo")
+        await ctx.send(":wave: Hello")
 
 
 
