@@ -74,11 +74,11 @@ async def on_command_error(ctx, error):
     await bot.get_channel(472783730872811529).send(embed=erroremb)
 
 @bot.command()
-async def say(saymsg):
+async def says(saymsg):
     """Makes me say something"""
     if not saymsg:
-        return await bot.say('Please provide me with something to say.')
-    await bot.say(saymsg)
+        return await ctx.send('Please provide me with something to say.')
+    await ctx.send(saymsg)
 
 @commands.guild_only()
 @bot.command(aliases=['osu'])
@@ -127,7 +127,7 @@ async def on_ready():
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(status=discord.Status.offline)
+    await bot.change_presence(status=discord.Status.online)
 
 @bot.command()
 @is_dev()
@@ -171,5 +171,5 @@ if __name__ == "__main__":
 
 
 if not os.environ.get('TOKEN'):
-    print("no token found REEEE!")
+    print("Who took the token? REEEEEEEEEE")
 bot.run(os.environ.get('TOKEN').strip('"'))
