@@ -36,10 +36,9 @@ startup_extensions = [
 
     'cogs.config',
     'cogs.developer',
-    'cogs.Math',
+    'cogs.Maths',
     'cogs.Fun',
-    'cogs.economy',
-    'cogs.useful'
+    'cogs.economy'
 ]
 
 def dev_check(id):
