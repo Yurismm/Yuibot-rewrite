@@ -64,15 +64,6 @@ class Fun:
         if user is None:
             await ctx.send("Gotta tag someone that you wanna slap!")
         else:
-            if user is <@456910763504697363>:
-                            await ctx.trigger_typing()
-                            try:
-
-                                av = self.format_avatar(user.avatar_url)
-                                avatar = self.format_avatar(ctx.author.avatar_url)
-                                await ctx.send(f"Ouch! **{ctx.author.name}** slapped **Me!**", file=discord.File(await self.client.batslap(avatar, av), "batslap.png"))
-                            except Exception as e:
-                                await ctx.send(f"An error occured with IdioticAPI. \nMore details: \n{e}")
             await ctx.trigger_typing()
             try:
 
