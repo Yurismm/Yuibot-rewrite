@@ -114,7 +114,7 @@ class developer:
 
     @commands.command()
     async def afk(self,ctx,a):
-            
+        '''user is AFK: reason'''
         await ctx.send(ctx.author.name 'is AFK:' a)
 
 
