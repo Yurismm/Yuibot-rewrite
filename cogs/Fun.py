@@ -191,7 +191,7 @@ class Fun:
             await ctx.send(f"**{user.name}** is on a painting!", file=discord.File(await self.client.bobross(user.avatar_url), "painting.png"))
         except Exception as e:
             await ctx.send(f"An error occured with IdioticAPI. \nMore details: \n{e}")
-    
+
     @commands.command()
     async def waifuinsult(self, ctx, user: discord.Member = None):
         await ctx.trigger_typing()
@@ -321,7 +321,7 @@ class Fun:
         except Exception as e:
             await ctx.send(f"An error occured with IdioticAPI. \nMore details: \n{e}")
 
-    
+
     @commands.command()
     async def mock(self, ctx, *, text):
         try:
