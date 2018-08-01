@@ -66,6 +66,7 @@ class Fun:
         else:
             await ctx.trigger_typing()
             try:
+
                 av = self.format_avatar(user.avatar_url)
                 avatar = self.format_avatar(ctx.author.avatar_url)
                 await ctx.send(f"Ouch! **{ctx.author.name}** slapped **{user.name}!**", file=discord.File(await self.client.batslap(avatar, av), "batslap.png"))
