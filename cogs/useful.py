@@ -11,6 +11,7 @@ class Math:
 
 
     @commands.command()
-    async def afk(self,ctx,a:int):
+    async def afk(ctx):
         '''@user is AFK: reason'''
-        await ctx.send(ctx.author.name'is AFK:' a)
+        async def add(self,ctx,a:int):
+            await ctx.send(ctx.author.name'is AFK:' a)
