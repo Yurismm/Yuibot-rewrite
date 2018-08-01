@@ -42,7 +42,7 @@ startup_extensions = [
     'cogs.polls'
     'cogs.rule34',
     'cogs.useful'
-    
+
 ]
 
 def dev_check(id):
@@ -73,6 +73,12 @@ async def on_command_error(ctx, error):
 
     await bot.get_channel(472783730872811529).send(embed=erroremb)
 
+@bot.command()
+async def say(saymsg):
+    """Makes me say something"""
+    if not saymsg:
+        return await bot.say('Please provide me with something to say.')
+    await bot.say(saymsg)
 
 @commands.guild_only()
 @bot.command(aliases=['osu'])
