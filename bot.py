@@ -127,7 +127,7 @@ async def on_ready():
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(status=discord.Status.idle)
+    await bot.change_presence(status=discord.Status.offline)
 
 @bot.command()
 @is_dev()
@@ -137,7 +137,7 @@ async def presence(ctx, Type=None, *, thing=None):
         await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
     else:
       if Type.lower() == 'stream':
-        await bot.change_presence(activity=discord.Streaming(name=thing, url='https://www.twitch.tv/monstercat'))
+        await bot.change_presence(activity=discord.Streaming(name=thing, url='https://www.google.co.uk/Yui+Funami'))
         await ctx.send(f'I am now streaming {thing}!')
       elif Type.lower() == 'game':
         await bot.change_presence(activity=discord.Game(name=thing))
