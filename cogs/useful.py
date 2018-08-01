@@ -10,7 +10,7 @@ class Math:
         self.bot = bot
 
 
-    @bot.command()
+    @commands.command()
     async def afk(ctx):
         '''@user is AFK: reason'''
         async def add(self,ctx,a:int):
