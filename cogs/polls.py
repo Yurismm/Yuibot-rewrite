@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-# I havent added this because it could be slightly buggy... ill add it when i finish looking and changing things on it 
+# I havent added this because it could be slightly buggy... ill add it when i finish looking and changing things on it
 class QuickPoll:
     '''
     Poll commands
@@ -11,10 +11,10 @@ class QuickPoll:
     @commands.command(pass_context=True)
     async def quickpoll(self, ctx, question, *options: str):
         if len(options) <= 1:
-            await self.bot.say('...Seriously, you need more than one option here')
+            await self.bot.say('You need more than one option for this to work.')
             return
         if len(options) > 10:
-            await self.bot.say('You cannot make a poll for more than 10 things!')
+            await self.bot.say('You cannot make a poll with more than 10 options!')
             return
 
         if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
@@ -45,7 +45,7 @@ class QuickPoll:
         unformatted_options = [x.strip() for x in embed['description'].split('\n')]
         opt_dict = {x[:2]: x[3:] for x in unformatted_options} if unformatted_options[0][0] == '1' \
             else {x[:1]: x[2:] for x in unformatted_options}
-        voters = [ctx.message.server.me.id]  
+        voters = [ctx.message.server.me.id]
         tally = {x: 0 for x in opt_dict.keys()}
         for reaction in poll_message.reactions:
             if reaction.emoji in opt_dict.keys():
