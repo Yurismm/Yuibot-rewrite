@@ -134,7 +134,7 @@ async def on_ready():
 async def presence(ctx, Type=None, *, thing=None):
     """Change the bots presence"""
     if Type is None:
-        await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
+        await ctx.send('Usage: &presence [game/stream] [msg] OR &presence clear')
     else:
       if Type.lower() == 'stream':
         await bot.change_presence(activity=discord.Streaming(name=thing, url='https://www.twitch.yv/mostercat'))
