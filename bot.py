@@ -73,13 +73,6 @@ async def on_command_error(ctx, error):
 
     await bot.get_channel(472783730872811529).send(embed=erroremb)
 
-@commands.command()
-async def says(self, saymsg):
-    """Makes me say something"""
-    if not saymsg:
-        return await self.bot.say('Please provide something for the bot to say.')
-    await self.bot.say(saymsg)
-
 @commands.guild_only()
 @bot.command(aliases=['osu'])
 async def osustats(ctx, *, osuplayer : str = None):
