@@ -38,7 +38,8 @@ startup_extensions = [
     'cogs.developer',
     'cogs.Math',
     'cogs.Fun',
-    'cogs.economy'
+    'cogs.economy',
+    'cogs.overwatch'
 ]
 
 def dev_check(id):
