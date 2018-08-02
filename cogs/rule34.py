@@ -13,7 +13,7 @@ class rule34:
         self.bot = bot
 
 @commands.command()
-async def lewd(self,ctx,lewd):
+async def lewd(self, ctx, lewd):
 
     if ctx.channel.is_nsfw():
     ctx.send("You can't use this command, Put the bot in a nsfw channel, and you will be able to use this command")
@@ -24,7 +24,7 @@ async def lewd(self,ctx,lewd):
         embed.set_author(name = "From Neko Life")
         embed.set_image(url = lewd)
         embed.set_footer(text='Made By Tom')
-        await ctx.send (embed = embed)
+        await ctx.send(embed)
 
 
 
