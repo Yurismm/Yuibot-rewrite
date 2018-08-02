@@ -21,4 +21,7 @@ async def overwatchstats(self,ctx, user: str = None, stats):
 
     await ctx.send("'''"stats"'''")
 
+    def setup(bot):
+    bot.add_cog(overwatch(bot))
+
 
