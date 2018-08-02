@@ -16,7 +16,7 @@ class useful:
         """Makes me say something"""
         if not saymsg:
             return await ctx.send('Please provide something for the bot to say.')
-        await ctx.send(saymsg)
+        ctx.send(saymsg)
 
 
 
