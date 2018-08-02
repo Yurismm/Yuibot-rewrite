@@ -19,7 +19,7 @@ db = AsyncIOMotorClient(os.environ.get('MONGODB'))
 
 
 async def getprefix(bot, message):
-    /if isinstance(message.channel, discord.DMChannel): return '&'
+    if isinstance(message.channel, discord.DMChannel): return '&'
     x = await bot.db.config.find_one({"_id": message.guild.id})
     pre = x['prefix'] if x is not None else '&'
     match = re.match(f"<@!?{bot.user.id}> ", message.content)
@@ -36,10 +36,11 @@ startup_extensions = [
 
     'cogs.config',
     'cogs.developer',
-    'cogs.Math',
-    'cogs.Fun',
     'cogs.economy',
-    'cogs.overwatch'
+    'cogs.Fun',
+    'cogs.Math',
+    'cogs.useful'
+
 ]
 
 def dev_check(id):
@@ -68,8 +69,7 @@ async def on_command_error(ctx, error):
     erroremb.add_field(name = "Server", value = ctx.guild)
     erroremb.add_field(name='Location', value=f'#{ctx.channel.name} ({ctx.channel.id})')
 
-    await bot.get_channel(472783730872811529).send(embed=erroremb)	
-
+    await bot.get_channel(472783730872811529).send(embed=erroremb)
 
 @commands.guild_only()
 @bot.command(aliases=['osu'])
@@ -125,10 +125,10 @@ async def on_ready():
 async def presence(ctx, Type=None, *, thing=None):
     """Change the bots presence"""
     if Type is None:
-        await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
+        await ctx.send('Usage: &presence [game/stream] [msg] OR &presence clear')
     else:
       if Type.lower() == 'stream':
-        await bot.change_presence(activity=discord.Streaming(name=thing, url='https://www.twitch.tv/monstercat'))
+        await bot.change_presence(activity=discord.Streaming(name=thing, url='https://www.twitch.tv/mostercat'))
         await ctx.send(f'I am now streaming {thing}!')
       elif Type.lower() == 'game':
         await bot.change_presence(activity=discord.Game(name=thing))
@@ -140,12 +140,12 @@ async def presence(ctx, Type=None, *, thing=None):
         await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
 
 
-            
 
 
 
-             
- 
+
+
+
 
 if __name__ == "__main__":
     for extension in startup_extensions:
@@ -158,9 +158,9 @@ if __name__ == "__main__":
 
 
 
-        
+
 
 
 if not os.environ.get('TOKEN'):
-    print("no token found REEEE!")
+    print("Who took the token? REEEEEEEEEE")
 bot.run(os.environ.get('TOKEN').strip('"'))
