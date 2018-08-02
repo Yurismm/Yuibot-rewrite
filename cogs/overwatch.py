@@ -10,6 +10,8 @@ class Overwatch:
     '''
 
 
+    def __init__(self, bot):
+        self.bot = bot
 
 @commands.command()
 async def overwatchstats(self,ctx, user: str = None, stats):
