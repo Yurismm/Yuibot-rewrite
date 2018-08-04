@@ -18,9 +18,19 @@ class useful:
             return await ctx.send('Please provide something for the bot to say.')
         await ctx.send(saymsg)
 
+    @bot.command(pass_context=True)
+    async def arole(ctx, *args):
+        member = ctx.message.author
+        input = ' '.join(args)
+        role = get(member.server.roles, name=input)
+        await bot.add_roles(member, role)
 
-
-
+    @bot.command(pass_context=True)
+    async def rrole(ctx, *args):
+        member = ctx.message.author
+        input = ' '.join(args)
+        role = get(member.server.roles, name=input)
+        await bot.remove_roles(member, role)
 
 
 # Setup bot
