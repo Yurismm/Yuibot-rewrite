@@ -20,18 +20,18 @@ class useful:
 
     @bot.command(pass_context=True)
     async def arole(ctx, *args):
-        member = ctx.message.author
+        member = ctx.message.author.id
         input = ' '.join(args)
         role = get(member.server.roles, name=input)
-        await bot.add_roles(member, role)
+        &eval await guild.get_member(member).add_roles(discord.utils.get(ctx.guild.roles, name =role))
+
 
     @bot.command(pass_context=True)
-    async def rrole(ctx, *args):
-        member = ctx.message.author
+    async def arole(ctx, *args):
+        member = ctx.message.author.id
         input = ' '.join(args)
         role = get(member.server.roles, name=input)
-        await bot.remove_roles(member, role)
-
+        &eval await guild.get_member(member).remove_roles(discord.utils.get(ctx.guild.roles, name =role))
 
 # Setup bot
 def setup(bot):
