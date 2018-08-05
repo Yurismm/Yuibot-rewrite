@@ -27,7 +27,7 @@ class useful:
 
 
     @bot.command(pass_context=True)
-    async def arole(ctx, *args):
+    async def rrole(ctx, *args):
         member = ctx.message.author.id
         input = ' '.join(args)
         role = get(member.server.roles, name=input)
