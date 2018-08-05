@@ -330,6 +330,7 @@ class Fun:
 
     @commands.command()
     async def mock(self, ctx, *, text):
+        """Mock someone"""
         try:
             await ctx.message.delete()
         except:
