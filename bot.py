@@ -39,7 +39,8 @@ startup_extensions = [
     'cogs.Math',
     'cogs.Fun',
     'cogs.economy',
-    'cogs.animals'
+    'cogs.animals',
+    'cogs.useful'
 ]
 
 def dev_check(id):
@@ -68,7 +69,7 @@ async def on_command_error(ctx, error):
     erroremb.add_field(name = "Server", value = ctx.guild)
     erroremb.add_field(name='Location', value=f'#{ctx.channel.name} ({ctx.channel.id})')
 
-    await bot.get_channel(472783730872811529).send(embed=erroremb)	
+    await bot.get_channel(472783730872811529).send(embed=erroremb)
 
 
 @commands.guild_only()
@@ -140,12 +141,12 @@ async def presence(ctx, Type=None, *, thing=None):
         await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
 
 
-            
 
 
 
-             
- 
+
+
+
 
 if __name__ == "__main__":
     for extension in startup_extensions:
@@ -158,7 +159,7 @@ if __name__ == "__main__":
 
 
 
-        
+
 
 
 if not os.environ.get('TOKEN'):
