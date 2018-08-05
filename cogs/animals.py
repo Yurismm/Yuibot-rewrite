@@ -29,7 +29,5 @@ async def cat(ctx,src,self):
 
 
 
-
-
 def setup(bot):
     bot.add_cog(animals(bot))

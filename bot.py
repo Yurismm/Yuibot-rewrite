@@ -40,7 +40,8 @@ startup_extensions = [
     'cogs.Fun',
     'cogs.Math',
     'cogs.useful',
-    'cogs.rule34'
+    'cogs.rule34',
+    'cogs.animals'
 ]
 
 def dev_check(id):
