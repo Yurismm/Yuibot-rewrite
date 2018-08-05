@@ -60,5 +60,4 @@ class polls:
                  '\n'.join(['{}: {}'.format(opt_dict[key], tally[key]) for key in tally.keys()])
         await self.bot.say(output)
 
-def setup(bot):
-    bot.add_cog(polls(bot))
+
