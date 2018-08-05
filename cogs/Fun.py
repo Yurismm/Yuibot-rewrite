@@ -33,7 +33,7 @@ class Fun:
 
     @commands.command()
     async def meme(self, ctx):
-        """Get a meme"""
+        """Get a meme."""
         await ctx.trigger_typing()
         r = await self.bot.session.get("https://api.reddit.com/u/kerdaloo/m/dankmemer/top/.json?sort=top&t=day&limit=500")
         r = await r.json()
@@ -48,7 +48,7 @@ class Fun:
 
     @commands.command(aliases=['triggered'])
     async def triggeredpic(self, ctx, user: discord.Member = None):
-        """TRIGERRED!!!"""
+        """Trigger someone."""
         if user is None:
             user = ctx.author
         try:
@@ -60,6 +60,7 @@ class Fun:
 
     @commands.command()
     async def batslap(self, ctx, user: discord.Member = None):
+        """Batslap someone."""
         if user is None:
             await ctx.send("Gotta tag someone that you wanna slap!")
         else:
@@ -75,6 +76,7 @@ class Fun:
 
     @commands.command()
     async def missing(self, ctx, user: discord.Member = None):
+        """Make someone disappear."""
         await ctx.trigger_typing()
         user = ctx.author if user is None else user
         try:
@@ -85,6 +87,7 @@ class Fun:
 
     @commands.command()
     async def wanted(self, ctx, user: discord.Member = None):
+        """Make someone wanted."""
         await ctx.trigger_typing()
         user = ctx.author if user is None else user
         try:
@@ -95,6 +98,7 @@ class Fun:
 
     @commands.command()
     async def achievement(self, ctx, *, text=None):
+        """Achieve something."""
         await ctx.trigger_typing()
         text = text or "Not putting text when using this command."
         try:
@@ -105,6 +109,7 @@ class Fun:
 
     @commands.command()
     async def facepalm(self, ctx, user: discord.Member = None):
+        """#failiure."""
         await ctx.trigger_typing()
         user = user if user is not None else ctx.author
         try:
@@ -114,6 +119,7 @@ class Fun:
 
     @commands.command()
     async def beautiful(self, ctx, user: discord.Member = None):
+        """Make someone beautiful."""
         await ctx.trigger_typing()
         user = user if user is not None else ctx.author
         try:
@@ -123,6 +129,7 @@ class Fun:
 
     @commands.command()
     async def stepped(self, ctx, user: discord.Member = None):
+        """Step on someone."""
         await ctx.trigger_typing()
         user = user if user is not None else ctx.author
         try:
