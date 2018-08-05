@@ -39,7 +39,6 @@ startup_extensions = [
     'cogs.Math',
     'cogs.Fun',
     'cogs.economy',
-    'cogs.animals',
     'cogs.useful'
 ]
 
