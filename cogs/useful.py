@@ -12,9 +12,9 @@ class useful:
         self.bot = bot
 
     @commands.command()
-    async def say(ctx, saymsg):
+    async def say(ctx, saymsg : str = None):
         """Makes me say something"""
-        if not saymsg:
+        if saymsg == None:
             return await ctx.send('Please provide something for the bot to say.')
         await ctx.send(saymsg)
 
