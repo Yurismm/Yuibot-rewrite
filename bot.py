@@ -148,6 +148,8 @@ async def say(ctx, saymsg : str = None):
     if saymsg == None:
         return await ctx.send('Please provide something for the bot to say.')
         await ctx.send(saymsg)
+    else:
+        pass
 
 
 
