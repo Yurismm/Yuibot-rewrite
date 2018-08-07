@@ -139,11 +139,10 @@ async def presence(ctx, Type=None, *, thing=None):
 
 
 @bot.command()
-async def say(ctx, saymsg : str = None):
+async def say(ctx, *, saymsg=None):
     """Makes me say something"""
-    if saymsg == None:
-        return await ctx.send('Please provide something for the bot to say.')
-        
+    if saymsg is None:
+        return await ctx.send('Please provide something for the bot to say.'
     else: 
         await ctx.send(saymsg)
 
@@ -153,7 +152,8 @@ async def cat(ctx,src,self):
     embed = discord.Embed(color = 0xf76ce4)
     embed.set_author(name = "A cat...Nothing serious")
     embed.set_image(url = src)
-    await ctx.send(embed = embed)
+    embed.set_footer(text="Cat why not")
+    await ctx.send (embed = embed)
 
              
  
