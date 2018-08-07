@@ -43,6 +43,8 @@ class Math:
     async def triple(self,ctx,a:int):
         await ctx.send(a*3)
 
+ 
+
 
 
 

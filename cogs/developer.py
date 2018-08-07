@@ -8,7 +8,7 @@ from utils.checks import *
 import io
 import json
 import os
-#import rule34
+
 
 class developer:
     '''
