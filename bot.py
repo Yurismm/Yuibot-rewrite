@@ -147,6 +147,15 @@ async def say(ctx, *, saymsg=None):
         await ctx.send(saymsg)
 
 @bot.command()
+async def announce(ctx, *, saymsg=None):
+    """Makes me annnounce something"""
+    if saymsg is None:
+        return await ctx.send('Please provide something for the bot to say.'
+    else:
+        await ctx.send(saymsg + `@everyone`)
+                              
+                              
+@bot.command()
 async def cat(ctx,src,self):
     src="http://thecatapi.com/api/images/get?format=src&type=gif"
     embed = discord.Embed(color = 0xf76ce4)
