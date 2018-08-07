@@ -138,7 +138,23 @@ async def presence(ctx, Type=None, *, thing=None):
         await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
 
 
+@bot.command()
+async def say(ctx, saymsg : str = None):
+    """Makes me say something"""
+    if saymsg == None:
+        return await ctx.send('Please provide something for the bot to say.')
+        
+    else: 
+        await ctx.send(saymsg)
 
+@bot.command()
+async def cat(ctx,src,self):
+    src="http://thecatapi.com/api/images/get?format=src&type=gif"
+    embed = discord.Embed(color = 0xf76ce4)
+    embed.set_author(name = "A cat...Nothing serious")
+    embed.set_image(url = src)
+    embed.set_footer(text="Cat why not")
+    await ctx.send (embed = embed)
 
              
  
