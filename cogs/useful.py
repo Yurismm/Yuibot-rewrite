@@ -24,6 +24,6 @@ async def say(ctx, saymsg : str = None):
 
 
     
-# Setup bot
+#Setup bot
 def setup(bot):
     bot.add_cog(useful(bot))

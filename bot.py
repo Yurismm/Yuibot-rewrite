@@ -33,12 +33,11 @@ bot.session = aiohttp.ClientSession(loop=bot.loop)
 
 
 startup_extensions = [
-
+    'cogs.useful',
     'cogs.config',
     'cogs.developer',
     'cogs.Fun',
-    'cogs.Math',
-    'cogs.useful'
+    'cogs.Math'
 ]
 
 def dev_check(id):
