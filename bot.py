@@ -152,7 +152,7 @@ async def announce(ctx, *, saymsg=None):
     if saymsg is None:
         return await ctx.send('Please provide something for the bot to say.'
     else:
-        await ctx.send(saymsg + `@everyone`)
+        await ctx.send(saymsg + '@everyone')
                               
                               
 @bot.command()
