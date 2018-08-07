@@ -38,8 +38,7 @@ startup_extensions = [
     'cogs.developer',
     'cogs.Fun',
     'cogs.Math',
-    'cogs.useful',
-    'cogs.animals'
+    'cogs.useful'
 ]
 
 def dev_check(id):
@@ -138,16 +137,6 @@ async def presence(ctx, Type=None, *, thing=None):
         await ctx.send("Stopped playing/streaming")
       else:
         await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
-
-
-@bot.command()
-async def say(ctx, saymsg : str = None):
-    """Makes me say something"""
-    if saymsg == None:
-        return await ctx.send('Please provide something for the bot to say.')
-        
-    else: 
-        await ctx.send(saymsg)
 
 
 
