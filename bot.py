@@ -153,8 +153,7 @@ async def cat(ctx,src,self):
     embed = discord.Embed(color = 0xf76ce4)
     embed.set_author(name = "A cat...Nothing serious")
     embed.set_image(url = src)
-    embed.set_footer(text="Cat why not")
-    await ctx.send (embed = embed)
+    await ctx.send(embed = embed)
 
              
  
