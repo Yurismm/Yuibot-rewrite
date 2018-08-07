@@ -5,3 +5,4 @@ git+https://github.com/Mariobob/pynite
 git+https://github.com/Nekos-life/nekos.py
 git+https://github.com/jonghwanhyeon/overwatch-stats
 git+https://github.com/anthok/overwatch-api
+git+https://github.com/zdict/zdict.git

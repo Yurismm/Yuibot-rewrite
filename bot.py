@@ -155,6 +155,21 @@ async def cat(ctx,src,self):
     embed.set_image(url = src)
     await ctx.send(embed = embed)
 
+@bot.command(pass_context = True) 
+async def urban(ctx, *,msg: str): 
+    '''Searches something on the Urban Dictionary''' 
+    word = ' '.join(msg) 
+    api = "http://api.urbandictionary.com/v0/define" 
+    response = requests.get(api, params=[("term", word)]).json()
+    if len(response["list"]) == 0: return await ctx.send("Could not find that word!")
+
+    else:
+        embed = discord.Embed(title = ":mag: Word Searched:", description = word, timestamp = datetime.datetime.utcnow())
+        embed.add_field(name = "Top definition:", value = response['list'][0]['definition'])
+        embed.add_field(name = "Examples:", value = response['list'][0]["example"])
+        embed.set_footer(text = "Tags: " + ', '.join(response['tags']))
+        await ctx.send(embed = embed)
+
              
  
 
