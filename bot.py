@@ -138,15 +138,10 @@ async def presence(ctx, Type=None, *, thing=None):
         await ctx.send('Usage: *presence [game/stream] [msg] OR *presence clear')
 
 
+
 @bot.command()
-async def say(ctx, *, saymsg=None):
-    """Makes me say something"""
-    if saymsg is None:
-        return await ctx.send('Please provide something for the bot to say.'
-    else: 
-        await ctx.send(saymsg)
-
-
+async def say(*, content):
+    await ctx.send(content)
                               
 
 if __name__ == "__main__":
