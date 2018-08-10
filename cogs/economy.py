@@ -8,5 +8,3 @@ class economy():
                                
                     
                          
-def setup(bot):
-    bot.add_cog(economy(bot))
