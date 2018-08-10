@@ -33,5 +33,4 @@ async def lewd(self, ctx, lewd):
 
 
 
-def setup(bot):
-    bot.add_cog(rule34(bot))
+
