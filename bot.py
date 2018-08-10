@@ -140,7 +140,7 @@ async def presence(ctx, Type=None, *, thing=None):
 
 
 @bot.command()
-async def say(ctx,self,*,content : str):
+async def say(ctx,self,content):
     await ctx.send(content)
                               
 
