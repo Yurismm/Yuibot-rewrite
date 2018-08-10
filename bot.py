@@ -140,8 +140,10 @@ async def presence(ctx, Type=None, *, thing=None):
 
 
 @bot.command()
-async def say(ctx,self,content):
-    await ctx.send(content)
+async def say(ctx,*args,self,content):
+    content = ' '.join(args)
+    await bot.delete_message(ctx.message)
+    return await ctx.send(content)
                               
 
 if __name__ == "__main__":
