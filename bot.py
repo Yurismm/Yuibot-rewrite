@@ -33,7 +33,6 @@ bot.session = aiohttp.ClientSession(loop=bot.loop)
 
 
 startup_extensions = [
-    'cogs.useful',
     'cogs.config',
     'cogs.developer',
     'cogs.Fun',
