@@ -142,8 +142,7 @@ async def presence(ctx, Type=None, *, thing=None):
 @bot.command()
 async def say(ctx,*args):
     content = ' '.join(args)
-    await bot.delete_message(ctx.message)
-    return await ctx.send(content)
+    await ctx.send(content)
                               
 
 if __name__ == "__main__":
