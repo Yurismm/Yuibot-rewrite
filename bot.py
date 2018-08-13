@@ -1,6 +1,7 @@
 import discord
 from utils.checks import *
 from discord.ext import commands
+from discord.ext import bot
 from motor.motor_asyncio import AsyncIOMotorClient
 import re
 import json
@@ -142,6 +143,7 @@ async def presence(ctx, Type=None, *, thing=None):
 async def say(ctx,*args):
     content = ' '.join(args)
     await ctx.send(content)
+
                               
 
 if __name__ == "__main__":
