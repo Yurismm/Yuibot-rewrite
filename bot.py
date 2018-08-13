@@ -144,6 +144,14 @@ async def say(ctx,*args):
     content = ' '.join(args)
     await ctx.send(content)
 
+@bot.command(pass_context = True)
+async def clear(ctx, number):
+    mgs = []
+    number = int(number) 
+    async for x in bot.logs_from(ctx.message.channel, limit = number):
+        mgs.append(x)
+    await bot.delete_messages(mgs)
+
                               
 
 if __name__ == "__main__":
