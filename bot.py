@@ -1,7 +1,6 @@
 import discord
 from utils.checks import *
 from discord.ext import commands
-from discord.ext import bot
 from motor.motor_asyncio import AsyncIOMotorClient
 import re
 import json
