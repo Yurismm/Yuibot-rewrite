@@ -95,7 +95,7 @@ async def on_guild_join(guild):
     await channel.send(embed=embed)
 
 @bot.command()
-async def cat(ctx,src):
+async def cat(ctx):
     src="http://thecatapi.com/api/images/get?format=src&type=gif"
     embed = discord.Embed(color = 0xf76ce4)
     embed.set_author(name = "A cat...Nothing serious")
