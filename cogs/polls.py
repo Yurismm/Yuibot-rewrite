@@ -1,27 +1,34 @@
 import discord
 from discord.ext import commands
 
+
 # I havent added this because it could be slightly buggy... ill add it when i finish looking and changing things on it
 # Added for testing
-class polls:
+class Polls:
     '''
     Poll commands
     '''
 
+    def __init__(self, bot):
+        self.bot = bot
 
     @commands.command(pass_context=True)
     async def quickpoll(self, ctx, question, *options: str):
         if len(options) <= 1:
-            await self.bot.say('You need more than one option for this to work.')
+            await self.bot.say(
+                'You need more than one option for this to work.')
             return
         if len(options) > 10:
-            await self.bot.say('You cannot make a poll with more than 10 options!')
+            await self.bot.say(
+                'You cannot make a poll with more than 10 options!')
             return
 
         if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
             reactions = ['✅', '❌']
         else:
-            reactions = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣', '🔟']
+            reactions = [
+                '1⃣', '2⃣', '3⃣', '4⃣', '5⃣', '6⃣', '7⃣', '8⃣', '9⃣', '🔟'
+            ]
 
         description = []
         for x, option in enumerate(options):
@@ -43,7 +50,9 @@ class polls:
             return
         if not embed['footer']['text'].startswith('Poll ID:'):
             return
-        unformatted_options = [x.strip() for x in embed['description'].split('\n')]
+        unformatted_options = [
+            x.strip() for x in embed['description'].split('\n')
+        ]
         opt_dict = {x[:2]: x[3:] for x in unformatted_options} if unformatted_options[0][0] == '1' \
             else {x[:1]: x[2:] for x in unformatted_options}
         voters = [ctx.message.server.me.id]
@@ -61,3 +70,5 @@ class polls:
         await self.bot.say(output)
 
 
+def setup(bot):
+    bot.add_cog(Polls(bot))
