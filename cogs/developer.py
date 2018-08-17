@@ -18,16 +18,12 @@ class developer:
     def __init__(self, bot):
         self.bot = bot
 
-
-
-
     def cleanup_code(self, content):
         """Automatically removes code blocks from the code."""
         # remove ```py\n```
         if content.startswith('```') and content.endswith('```'):
             return '\n'.join(content.split('\n')[1:-1])
-        return content.strip('` \n')
-
+        return content.strip('`\n')
 
     @commands.command(name='eval')
     @is_dev()
@@ -55,16 +51,13 @@ class developer:
 
         def paginate(text: str):
             '''Simple generator that paginates text.'''
-            last = 0
+            # Untested function rewrite, sorry if it's broken -Jamu
+            cur = 0
             pages = []
-            for curr in range(0, len(text)):
-                if curr % 1980 == 0:
-                    pages.append(text[last:curr])
-                    last = curr
-                    appd_index = curr
-            if appd_index != len(text) - 1:
-                pages.append(text[last:curr])
-            return list(filter(lambda a: a != '', pages))
+            while cur <= len(text):
+                pages.append(text[cur:1980])
+                cur += 1980
+            return pages
 
         try:
             exec(to_compile, env)
@@ -111,9 +104,6 @@ class developer:
             await ctx.message.add_reaction('\u2049')  # x
         else:
             await ctx.message.add_reaction('\u2705')
-
-
-
 
 
 # Setup bot
