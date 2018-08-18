@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import traceback
+import subprocess
 import textwrap
 from contextlib import redirect_stdout
 import inspect
@@ -106,6 +107,20 @@ class developer:
             await ctx.message.add_reaction('\u2705')
 
 
+    @commands.command()
+    @is_dev()
+    async def update(self, ctx):
+        """Updates the bot."""
+        msg = await ctx.send("Updating")
+        try:
+            lol = subprocess.run("git pull", cwd=r'\Users\Administrator\Desktop\Yuibot-rewrite', stdout=subprocess.PIPE, shell=True).stdout.decode('utf-8')
+            for cog in self.bot.cogs:
+                cog = cog.lower()
+                self.bot.unload_extension(f"cogs.{cog}")
+                self.bot.load_extension(f"cogs.{cog}")
+            await msg.edit(content=f"All cogs reloaded \n\nLog:\n```{lol}```")
+        except Exception as e:
+            await msg.edit(content=f"An error occured. \n\nDetails: \n{e}")
 
 
 # Setup bot
