@@ -107,7 +107,7 @@ class developer:
             await ctx.message.add_reaction('\u2705')
 
     @commands.command(name='exec')
-    @is_dev
+    @is_dev()
     async def _exec(self, ctx, *, code):
         """Executes code."""
         e = discord.Embed(color=0x00ff00, title='Running code')
