@@ -16,7 +16,7 @@ import time
 
 with open("data/tokens.json") as f:
     x = json.load(f)
-db = AsyncIOMotorClient(x['MONGODB']))
+db = AsyncIOMotorClient(x['MONGODB'])
 
 
 async def getprefix(bot, message):
