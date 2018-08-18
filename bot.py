@@ -106,6 +106,10 @@ async def on_guild_remove(guild):
     embed.set_author(name=f"Owner: {guild.owner} | ID: {guild.owner.id}", icon_url=guild.owner.avatar_url)
     await channel.send(embed=embed)
 
+@bot.command()
+async def test(ctx):
+    await ctx.send("test")
+
 @bot.event
 async def on_ready():
     print("----------------")
