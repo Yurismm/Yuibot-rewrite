@@ -14,8 +14,9 @@ import sys
 import time
 
 
-
-db = AsyncIOMotorClient(os.environ.get('MONGODB'))
+with open("data/tokens.json") as f:
+    x = json.load(f)
+db = AsyncIOMotorClient(x['MONGODB']))
 
 
 async def getprefix(bot, message):
@@ -152,8 +153,14 @@ if __name__ == "__main__":
 
 
         
+with open("data/tokens.json") as f:
+    x = json.loads(f.read())
+try:
+    bot.run(x['TOKEN'])
+except Exception as e:
+    print("Could not start the bot. Check the token.")
 
 
-if not os.environ.get('TOKEN'):
-    print("no token found REEEE!")
-bot.run(os.environ.get('TOKEN').strip('"'))
+#if not os.environ.get('TOKEN'):
+#    print("no token found REEEE!")
+#bot.run(os.environ.get('TOKEN').strip('"'))

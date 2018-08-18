@@ -9,7 +9,6 @@ import textwrap
 from discord.ext import commands
 import base64
 import urllib
-import json
 from random import randint
 
 
@@ -18,7 +17,9 @@ class Fun:
     def __init__(self, bot):
         self.bot = bot
         self.session = self.bot.session
-        self.token = os.environ.get('IDIOTICAPI')
+        with open('data/tokens.json') as f:
+            lol = json.load(f)
+            self.token = lol['idioticapi']
         self.client = idioticapi.Client(self.token, dev=True, session = self.bot.session)
 
     def format_avatar(self, avatar_url):
