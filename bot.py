@@ -110,9 +110,6 @@ async def on_guild_remove(guild):
 async def invite(ctx):
     await ctx.send("https://discordapp.com/oauth2/authorize?client_id=456910763504697363&scope=bot&permissions=8")
 
-@bot.command()
-async def test(ctx):
-    await ctx.send("test")
 
 @bot.event
 async def on_ready():
