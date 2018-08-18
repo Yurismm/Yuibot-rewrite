@@ -106,21 +106,23 @@ class developer:
         else:
             await ctx.message.add_reaction('\u2705')
 
-
-    @commands.command()
-    @is_dev()
-    async def update(self, ctx):
-        """Updates the bot."""
-        msg = await ctx.send("Updating")
-        try:
-            lol = subprocess.run("git pull", cwd=r'\Users\Administrator\Desktop\Yuibot-rewrite', stdout=subprocess.PIPE, shell=True).stdout.decode('utf-8')
-            for cog in self.bot.cogs:
-                cog = cog.lower()
-                self.bot.unload_extension(f"cogs.{cog}")
-                self.bot.load_extension(f"cogs.{cog}")
-            await msg.edit(content=f"All cogs reloaded \n\nLog:\n```{lol}```")
-        except Exception as e:
-            await msg.edit(content=f"An error occured. \n\nDetails: \n{e}")
+    @commands.command(name='exec')
+    @is_dev
+    async def _exec(self, ctx, *, code):
+        """Executes code."""
+        e = discord.Embed(color=0x00ff00, title='Running code')
+        e.description ='Please wait...'
+        msg = await ctx.send(embed=e)
+        lol = subprocess.run(f"{code}", cwd='/Users/Administrator/Desktop/Yuibot-rewrite', stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
+        err = lol.stderr.decode("utf-8")
+        res = lol.stdout.decode("utf-8")
+        em = discord.Embed(color=0x00ff00, title='Ran on the Command Prompt!')
+        if len(res) > 1850 or len(err) > 1850:
+            em.description = f"Ran on the Command Line ```{code}``` Output: \nThe process details are too large to fit in a message."
+            await msg.edit(embed=em)
+        else:
+            em.description = f"Ran on the Command Line: ```{code}``` Output: \n\n```{err or res}```"
+            await msg.edit(embed=em)
 
 
 # Setup bot
