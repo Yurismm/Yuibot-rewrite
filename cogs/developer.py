@@ -106,6 +106,8 @@ class developer:
         else:
             await ctx.message.add_reaction('\u2705')
 
+#test
+
     @commands.command(name='exec')
     @is_dev()
     async def _exec(self, ctx, *, code):
