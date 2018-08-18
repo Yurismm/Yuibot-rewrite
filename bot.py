@@ -5,6 +5,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import re
 import json
 import logging
+import idioticapi
 import inspect
 import traceback
 import os
@@ -29,6 +30,7 @@ async def getprefix(bot, message):
 bot = commands.Bot(command_prefix=getprefix)
 bot.db = db.yui
 bot._last_result = None
+bot.api = idioticapi.Client("SDZEiyE80SXdQhlpJdx0", dev=True)
 logging.basicConfig(level=logging.ERROR)
 bot.session = aiohttp.ClientSession(loop=bot.loop)
 
@@ -56,6 +58,28 @@ async def ping(ctx):
     em.description = f'{bot.ws.latency * 1000:.4f} ms'
     await ctx.send(embed=em)
       
+def format_avatar(avatar_url):
+    if avatar_url.endswith(".gif"):
+        return avatar_url + "?size=2048"
+    return avatar_url.replace("webp", "png")
+
+@bot.command()
+async def test(ctx, user: discord.Member = None):
+        if user is None:
+            await ctx.send("Gotta tag someone")
+        else:
+            await ctx.trigger_typing()
+            try:
+                version = "gearz"
+                avatar = format_avatar(user.avatar_url)
+                isbot = ctx.author.bot
+                usertag = user.author
+                guild = ctx.guild
+#                avatar = format_avatar(ctx.author.avatar_url)
+                await ctx.send(f" **{user.name}!**", file=discord.File(await bot.api.welcome(avatar, version, isbot, usertag, guild), "test.png"))
+            except Exception as e:
+                await ctx.send(f"An error occured with IdioticAPI. \nMore details: \n{e}")
+
 
 @bot.event
 async def on_command_error(ctx, error):
