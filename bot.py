@@ -54,31 +54,6 @@ async def ping(ctx):
     em.title = "Pong!"
     em.description = f'{bot.ws.latency * 1000:.4f} ms'
     await ctx.send(embed=em)
-
-@bot.command(hidden=True)
-@is_dev()
-async def unload( *, module : str):
-    """Unloads a module."""
-        try:
-            bot.unload_extension(module)
-        except Exception as e:
-            await ctx.send('Ehhh')
-            await ctx.send('{}: {}'.format(type(e).__name__, e))
-        else:
-            await ctx.send('Done.')
-
-@bot.command(hidden=True)
-@is_dev()
-async def load( *, module : str):
-    """Loads a module."""
-        try:
-            bot.load_extension(module)
-        except Exception as e:
-            await ctx.send('Ehhh')
-            await ctx.send('{}: {}'.format(type(e).__name__, e))
-        else:
-            await ctx.send('Done.')
-
       
 
 @bot.event

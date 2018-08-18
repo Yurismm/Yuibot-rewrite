@@ -105,6 +105,30 @@ class developer:
         else:
             await ctx.message.add_reaction('\u2705')
 
+@commands.command(hidden=True)
+@is_dev()
+async def unload( *, module : str):
+    """Unloads a module."""
+        try:
+            bot.unload_extension(module)
+        except Exception as e:
+            await ctx.send('Ehhh')
+            await ctx.send('{}: {}'.format(type(e).__name__, e))
+        else:
+            await ctx.send('Done.')
+
+@commands.command(hidden=True)
+@is_dev()
+async def load( *, module : str):
+    """Loads a module."""
+        try:
+            bot.load_extension(module)
+        except Exception as e:
+            await ctx.send('Ehhh')
+            await ctx.send('{}: {}'.format(type(e).__name__, e))
+        else:
+            await ctx.send('Done.')
+
 
 # Setup bot
 def setup(bot):
