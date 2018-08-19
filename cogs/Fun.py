@@ -28,7 +28,10 @@ class Fun:
         return avatar_url.replace("webp", "png")
 
 
-
+@client.event
+@asyncio.coroutine
+def on_message(ayy):
+    await ctx.send("lmao")
 
 
 
