@@ -6,6 +6,8 @@ import re
 import json
 import logging
 import idioticapi
+import random
+from random import randint
 import inspect
 import traceback
 import os
@@ -111,7 +113,9 @@ async def on_guild_remove(guild):
 
 @bot.command()
 async def invite(ctx):
-    embed = discord.Embed(description="https://discordapp.com/oauth2/authorize?client_id=456910763504697363&scope=bot&permissions=8",color = 0xf76ce4)
+    colour = ''.join([random.choice('0123456789ABCDEF') for x in range(6)])
+    colour = int(colour, 16)
+    embed = discord.Embed(description="https://discordapp.com/oauth2/authorize?client_id=456910763504697363&scope=bot&permissions=8",color = colour)
     embed.set_author(name = "Use this link to invite Yui to your server!")
     embed.set_footer(text="Invite Link")
     await ctx.send(embed=embed)
