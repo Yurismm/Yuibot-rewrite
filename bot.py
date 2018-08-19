@@ -111,7 +111,10 @@ async def on_guild_remove(guild):
 
 @bot.command()
 async def invite(ctx):
-    await ctx.send("https://discordapp.com/oauth2/authorize?client_id=456910763504697363&scope=bot&permissions=8")
+    embed = discord.Embed(description="https://discordapp.com/oauth2/authorize?client_id=456910763504697363&scope=bot&permissions=8",color = 0xf76ce4)
+    embed.set_author(name = "Use this link to invite Yui to your server!")
+    embed.set_footer(text="Invite Link")
+    await ctx.send(embed=embed)
 
 
 @bot.event
@@ -122,6 +125,9 @@ async def on_ready():
     print("ID : {}".format(bot.user.id))
     print("Py Lib Version: %s"%discord.__version__)
     print("----------------")
+
+
+
 
 @bot.event
 async def on_ready():
