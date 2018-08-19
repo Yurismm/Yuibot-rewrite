@@ -127,10 +127,7 @@ async def on_ready():
     print("----------------")
 
 
-@bot.event
-@asyncio.coroutine
-def on_message(ayy):
-    await ctx.send("lmao")
+
 
 @bot.event
 async def on_ready():
