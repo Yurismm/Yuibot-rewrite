@@ -111,9 +111,8 @@ async def on_guild_remove(guild):
 
 @bot.command()
 async def invite(ctx):
-    embed = discord.Embed(color = 0xf76ce4)
+    embed = discord.Embed(description="https://discordapp.com/oauth2/authorize?client_id=456910763504697363&scope=bot&permissions=8",color = 0xf76ce4)
     embed.set_author(name = "Use this link to invite Yui to your server!")
-    embed.description(text="https://discordapp.com/oauth2/authorize?client_id=456910763504697363&scope=bot&permissions=8")
     embed.set_footer(text="Invite Link")
     await ctx.send(embed=embed)
 
