@@ -120,6 +120,13 @@ async def invite(ctx):
     embed.set_footer(text="Invite Link")
     await ctx.send(embed=embed)
 
+@commands.command()
+async def say(ctx, saymsg: str = None):
+    """Makes me say something"""
+    if not saymsg:
+        await ctx.send('Please provide something for the bot to say.')
+    else:
+        await ctx.send(saymsg)
 
 @bot.event
 async def on_ready():
