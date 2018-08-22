@@ -29,13 +29,7 @@ class Fun:
 
 
 
-@commands.command()
-async def say(self, ctx, saymsg: str = None):
-    """Makes me say something"""
-    if not saymsg:
-        await ctx.send('Please provide something for the bot to say.')
-    else:
-        await ctx.send(saymsg)
+
 
 
     @commands.command()
