@@ -120,11 +120,6 @@ async def invite(ctx):
     embed.set_footer(text="Invite Link")
     await ctx.send(embed=embed)
 
-@bot.command()
-async def say(ctx,content):
-"""Makes me say something 👀"""
-await ctx.send(content)
-
 @bot.event
 async def on_ready():
     print("----------------")
