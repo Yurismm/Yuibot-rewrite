@@ -121,12 +121,9 @@ async def invite(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-async def say(ctx, saymsg: str = None):
-    """Makes me say something"""
-    if not saymsg:
-        await ctx.send('Please provide something for the bot to say.')
-    else:
-        await ctx.send(saymsg)
+async def say(ctx,content):
+"""Makes me say something 👀"""
+await ctx.send(content)
 
 @bot.event
 async def on_ready():
@@ -136,8 +133,6 @@ async def on_ready():
     print("ID : {}".format(bot.user.id))
     print("Py Lib Version: %s"%discord.__version__)
     print("----------------")
-
-
 
 
 @bot.event
