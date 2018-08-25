@@ -120,7 +120,6 @@ async def invite(ctx):
     embed.set_footer(text="Invite Link")
     await ctx.send(embed=embed)
 
-
 @bot.event
 async def on_ready():
     print("----------------")
@@ -129,8 +128,6 @@ async def on_ready():
     print("ID : {}".format(bot.user.id))
     print("Py Lib Version: %s"%discord.__version__)
     print("----------------")
-
-
 
 
 @bot.event
