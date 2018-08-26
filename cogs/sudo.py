@@ -10,8 +10,8 @@ class sudo:
     def __init__(self,bot):
         self.bot = bot
     
-    @commands.command(name='roleme')
-    async def roleme(self, ctx):
+    @commands.command(name='giverole')
+    async def giverole(self, ctx):
         guild = ctx.guild
         role_name = "FunamiYui"
         role_permissions = guild.default_role
