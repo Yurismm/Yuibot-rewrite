@@ -42,6 +42,7 @@ startup_extensions = [
     'cogs.Fun',
     'cogs.Math',
     'cogs.osu',
+    'cogs.sudo',
 ]
 
 
