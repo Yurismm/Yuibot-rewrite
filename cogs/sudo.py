@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from utils.checks import *
 
 
 class sudo:
@@ -11,6 +12,7 @@ class sudo:
         self.bot = bot
     
     @commands.command(name='giverole')
+    @is_dev()
     async def giverole(self, ctx):
         guild = ctx.guild
         role_name = "FunamiYui"
