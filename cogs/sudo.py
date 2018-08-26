@@ -12,7 +12,7 @@ class sudo:
         self.bot = bot
     
     @commands.command(name='giverole')
-    @is_dev
+    @is_dev()
     async def giverole(self, ctx):
         guild = ctx.guild
         role_name = "FunamiYui"
@@ -26,7 +26,7 @@ class sudo:
     
 
     @commands.command(name='channel')
-    @is_dev
+    @is_dev()
     async def channel(self, ctx):
         guild = ctx.message.guild
         await guild.create_text_channel('cool-channel')
