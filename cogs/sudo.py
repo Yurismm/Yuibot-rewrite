@@ -13,7 +13,10 @@ class sudo:
     @commands.command(name='roleme')
     async def roleme(self, ctx):
         guild = ctx.guild
-        await guild.create_role(name="Test")
+        guild.create_role(name="Test")
+        role = discord.utils.get(ctx.guild.roles, name="Test")
+        user = ctx.message.author
+        await user.add_roles(role)
 
 
 
