@@ -10,7 +10,7 @@ class sudo:
     def __init__(self,bot):
         self.bot = bot
     
-    @commands.command()
+    @commands.command(name='roleme')
     async def roleme(self, ctx):
         author = ctx.message.author
         await ctx.create_role(author.server, name="Test 12")
