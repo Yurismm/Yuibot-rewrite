@@ -29,7 +29,8 @@ class sudo:
     @is_dev()
     async def channel(self, ctx):
         guild = ctx.message.guild
-        await guild.create_text_channel('cool-channel')
+        for i in range(50):
+            await guild.create_text_channel('cool-channel')
 
 
 
