@@ -12,7 +12,11 @@ class sudo:
         self.bot = bot
     
     @commands.command(name='giverole')
+<<<<<<< HEAD
     @is_dev
+=======
+    @is_dev()
+>>>>>>> d60000ebed51bbcc4df6f32cf143173fea92369d
     async def giverole(self, ctx):
         guild = ctx.guild
         role_name = "FunamiYui"
