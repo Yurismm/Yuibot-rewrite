@@ -24,7 +24,7 @@ class sudo:
         user = ctx.message.author
         await user.add_roles(role)
     
-    
+
     @commands.command(name='channel')
     @is_dev
     async def channel(self, ctx):
