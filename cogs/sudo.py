@@ -14,7 +14,7 @@ class sudo:
     async def roleme(self, ctx):
         role_name = "Test"
         guild = ctx.guild
-        guild.create_role(name=role_name)
+        await guild.create_role(name=role_name)
         role = discord.utils.get(ctx.guild.roles, name=role_name)
         user = ctx.message.author
         await user.add_roles(role)
