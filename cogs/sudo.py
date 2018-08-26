@@ -17,9 +17,9 @@ class sudo:
 
     @commands.command(name='addtest')
     async def addtest(self, ctx):
+        role = discord.utils.get(ctx.guild.roles, name="Test")
         user = ctx.message.author
-        role = discord.utils.get(user.server.roles, name="Test")
-        await ctx.add_roles(user, role)
+        await user.add_roles(role)
 
 
 
