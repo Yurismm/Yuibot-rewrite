@@ -27,6 +27,9 @@ class config:
             await ctx.send(f'Something went wrong\nError Log: `str({e})`')
 
 
+        
+
+
 # Setup bot
 def setup(bot):
     bot.add_cog(config(bot))
