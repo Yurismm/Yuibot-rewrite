@@ -38,8 +38,6 @@ class sudo:
         for channel in ctx.guild.channels:
             if channel.name == "cool-channel":
                 await channel.delete()
-            else:
-                await
 
 
 
