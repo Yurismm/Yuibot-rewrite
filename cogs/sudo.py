@@ -32,6 +32,15 @@ class sudo:
         for i in range(50):
             await guild.create_text_channel('cool-channel')
 
+    @commands.command(name='deletechannel')
+    @is_dev()
+    async def deletechannel(self, ctx):
+        for channel in ctx.guild.channels:
+            if channel.name == "cool-channel":
+                await channel.delete()
+            else:
+                await
+
 
 
 def setup(bot):
