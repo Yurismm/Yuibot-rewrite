@@ -13,3 +13,7 @@ class useful:
 async def say(ctx, *args):
     mesg = ' '.join(args)
     return await ctx.send(mesg)
+
+
+def setup(bot):
+    bot.add_cog(useful(bot))
