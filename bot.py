@@ -36,7 +36,6 @@ logging.basicConfig(level=logging.ERROR)
 bot.session = aiohttp.ClientSession(loop=bot.loop)
 
 startup_extensions = [
-    'cogs.useful',
     'cogs.config',
     'cogs.developer',
     'cogs.Fun',
@@ -176,6 +175,3 @@ try:
 except Exception as e:
     print("Could not start the bot. Check the token.")
 
-#if not os.environ.get('TOKEN'):
-#    print("no token found REEEE!")
-#bot.run(os.environ.get('TOKEN').strip('"'))
