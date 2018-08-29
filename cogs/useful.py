@@ -12,7 +12,7 @@ class useful:
 @commmands.command(pass_context = True)
 async def say(ctx, *args):
     mesg = ' '.join(args)
-    return await ctx.send(mesg)
+    await ctx.send(mesg)
 
 
 def setup(bot):
