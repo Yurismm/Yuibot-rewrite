@@ -39,6 +39,13 @@ class sudo:
             if channel.name == "cool-channel":
                 await channel.delete()
 
+    @bot.command(name='deletechannel2')
+    @is_dev()
+    async def deletechannel2(self,ctx):
+        for channel in ctx.guild.channels:
+            if channel.name == "fumée²":
+                await channel.delete()
+
 
 
 def setup(bot):
