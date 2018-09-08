@@ -35,14 +35,7 @@ class sudo:
         try:
             await ctx.guild.ban(user, delete_message_days=0, reason=reason)
         except discord.errors.Forbidden:
-            if user.top_role.position == ctx.me.top_role.position:
-                await ctx.send(Language.get("moderation.no_ban_highest_role", ctx))
-            elif user.top_role.position > ctx.me.top_role.position:
-                await ctx.send(Language.get("moderation.no_ban_higher_role", ctx))
-            else:
-                await ctx.send(Language.get("moderation.no_ban_perms", ctx))
-            return
-        await ctx.send(Language.get("moderation.ban_success", ctx).format(user))
+            print("whoops")
 
 
     @commands.command(name='fix')
