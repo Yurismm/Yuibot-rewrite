@@ -2,6 +2,9 @@ import discord
 from discord.ext import commands
 from utils.checks import *
 
+class DevError(commands.CheckFailure):
+    pass
+
 # Dont question this
 # Exsists to prevent abuse. Yurii just add yourself
 def is_whitelist():
