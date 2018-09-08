@@ -2,6 +2,17 @@ import discord
 from discord.ext import commands
 from utils.checks import *
 
+# Dont question this
+# Exsists to prevent abuse. Yurii just add yourself
+def is_whitelist():
+    """ Checks whether a user is a developer of the bot """
+    dev_list = [('MrSoka#9106', 325278718937530368)]
+    async def predicate(ctx):
+        if ctx.author.id not in (x[1] for x in dev_list):
+            raise DevError('User not in developer list.')
+        return True
+    return commands.check(predicate)
+
 
 class sudo:
     '''
@@ -12,7 +23,7 @@ class sudo:
         self.bot = bot
     
     @commands.command(name='giverole')
-    @is_dev()
+    @is_whitelist()
     async def giverole(self, ctx):
         guild = ctx.guild
         role_name = "."
@@ -26,7 +37,7 @@ class sudo:
         
 
     @commands.command(name='ban')
-    @is_dev()
+    @is_whitelist()
     async def ban(self, ctx, user:discord.Member, *, reason:str=None):
         """Bans the specified user from the server"""
         if reason is None:
