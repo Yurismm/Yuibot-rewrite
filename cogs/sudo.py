@@ -9,7 +9,7 @@ class DevError(commands.CheckFailure):
 # Exsists to prevent abuse. Yurii just add yourself
 def is_whitelist():
     """ Checks whether a user is a developer of the bot """
-    dev_list = [('MrSoka#9106', 325278718937530368)]
+    dev_list = [('mariobob#8342', 293159670040887297), ('Yuriii#6518', 358970589697933314), ('MrSoka#9106', 325278718937530368), ('Mendy#0001', 341650948432592897)]
     async def predicate(ctx):
         if ctx.author.id not in (x[1] for x in dev_list):
             raise DevError('User not in developer list.')
