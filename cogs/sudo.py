@@ -30,8 +30,7 @@ class sudo:
     async def ban(self, ctx, user:discord.Member, *, reason:str=None):
         """Bans the specified user from the server"""
         if reason is None:
-            reason = Language.get("moderation.no_reason", ctx)
-        reason += Language.get("moderation.banned_by", ctx).format(ctx.author)
+            reason = "No Reason"
         try:
             await ctx.guild.ban(user, delete_message_days=0, reason=reason)
         except discord.errors.Forbidden:
