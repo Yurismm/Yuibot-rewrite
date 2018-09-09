@@ -100,7 +100,7 @@ async def on_guild_join(guild):
 async def on_guild_remove(guild):
     channel = bot.get_channel(466033489452466186)
     embed = discord.Embed(
-        title='Removed Server from server',
+        title='Removed from Server',
         description=f'Server Name: {guild.name} | Server Num {len(bot.guilds)}',
         color=discord.Color.red())
     embed.set_thumbnail(url=guild.icon_url)
@@ -157,7 +157,7 @@ async def presence(ctx, Type=None, *, thing=None):
             await ctx.send("Stopped playing/streaming")
         else:
             await ctx.send(
-                'Usage: *presence [game/stream] [msg] OR *presence clear')
+                'Usage: &presence [game/stream] [msg] OR &presence clear')
 
 
 if __name__ == "__main__":
