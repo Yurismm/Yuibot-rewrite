@@ -9,10 +9,10 @@ class useful:
     def __init__(self,bot):
         self.bot = bot
 
-@commmands.command(pass_context = True)
-async def say(ctx, *args):
-    mesg = ' '.join(args)
-    await ctx.send(mesg)
+@commmands.command()
+async def say(ctx, *, content:str):
+    '''Make's Yui say any message you put'''
+    await ctx.send(content)
 
 
 def setup(bot):

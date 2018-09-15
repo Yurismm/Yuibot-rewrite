@@ -31,7 +31,6 @@ class Fun:
 
 
 
-
     @commands.command()
     async def meme(self, ctx):
         """Get a meme."""
