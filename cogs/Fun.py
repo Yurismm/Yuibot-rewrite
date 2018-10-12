@@ -20,6 +20,7 @@ class Fun:
         with open('data/tokens.json') as f:
             lol = json.load(f)
             self.token = lol['idioticapi']
+            self.apikey = lol['brotatapi']
         self.client = idioticapi.Client(self.token, dev=True, session = self.bot.session)
 
     def format_avatar(self, avatar_url):
@@ -355,9 +356,23 @@ class Fun:
             await ctx.send(f"An error occured with IdioticAPI. \nMore details: \n{e}")
 
     @commands.command()
-    async def greet(ctx):
-        await ctx.send(":wave: Hello")
+    async def disabled(self, ctx, user: discord.Member):
+        if not user:
+            user = ctx.author
+        url = user.avatar_url.replace("1024", "2048").replace("webp", "png")
 
+        h = {
+            "Authorization": self.apikey
+        }
+
+        p = {
+            "avatar1": url
+        }
+
+        re = await self.bot.session.get("http://brotat.ga/api/disability", headers=h, params=p)
+
+        re = await re.read()
+        await ctx.send(file=discord.File(re, "disabled.png"))
 
 
 
