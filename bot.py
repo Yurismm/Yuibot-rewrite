@@ -49,7 +49,7 @@ startup_extensions = [
 ]
 
 @bot.command()
-async def help(ctx):
+async def test(ctx):
     author = ctx.message.author
 
     embed = discord.Embed(
