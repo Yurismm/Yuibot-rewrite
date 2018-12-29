@@ -35,6 +35,8 @@ bot._last_result = None
 logging.basicConfig(level=logging.ERROR)
 bot.session = aiohttp.ClientSession(loop=bot.loop)
 
+bot.remove_command("help")
+
 startup_extensions = [
     'cogs.useful',
     'cogs.config',
@@ -44,6 +46,21 @@ startup_extensions = [
     'cogs.osu',
     'cogs.sudo',
 ]
+
+@bot.command(pass_context=true)
+async def help(ctx):
+    author = ctx.message.author
+
+    embed = discord.Embed(
+        color = discord.Colour.red
+    )
+    
+    embed.set_author(name="help")
+    embed.add_field(name="&ping", value="Tells you the ping of the bot.", inline=False)
+
+    await bot.send_message(author,embed)
+    
+
 
 
 def dev_check(id):
