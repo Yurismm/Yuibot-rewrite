@@ -37,6 +37,7 @@ bot.session = aiohttp.ClientSession(loop=bot.loop)
 
 bot.remove_command("help")
 
+
 startup_extensions = [
     'cogs.useful',
     'cogs.config',
@@ -47,7 +48,7 @@ startup_extensions = [
     'cogs.sudo',
 ]
 
-@bot.command(pass_context=true)
+@bot.command()
 async def help(ctx):
     author = ctx.message.author
 
@@ -59,7 +60,7 @@ async def help(ctx):
     embed.add_field(name="&ping", value="Tells you the ping of the bot.", inline=False)
 
     await bot.send_message(author,embed)
-    
+
 
 
 
