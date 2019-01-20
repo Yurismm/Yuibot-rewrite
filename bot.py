@@ -35,7 +35,6 @@ bot._last_result = None
 logging.basicConfig(level=logging.ERROR)
 bot.session = aiohttp.ClientSession(loop=bot.loop)
 
-bot.remove_command("help")
 
 
 startup_extensions = [
@@ -53,13 +52,13 @@ async def test(ctx):
     author = ctx.message.author
 
     embed = discord.Embed(
-        color = discord.Colour.red
+        color = discord.Colour
     )
     
     embed.set_author(name="help")
     embed.add_field(name="&ping", value="Tells you the ping of the bot.", inline=False)
 
-    await bot.send_message(author,embed)
+    await ctx.send_message(author,embed)
 
 
 
