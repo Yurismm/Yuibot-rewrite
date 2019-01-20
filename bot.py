@@ -47,20 +47,6 @@ startup_extensions = [
     'cogs.sudo',
 ]
 
-@bot.command()
-async def test(ctx):
-    author = ctx.message.author
-
-    embed = discord.Embed(
-        color = discord.Colour
-    )
-    
-    embed.set_author(name="help")
-    embed.add_field(name="&ping", value="Tells you the ping of the bot.", inline=False)
-
-    await ctx.send_message(author,embed)
-
-
 
 
 def dev_check(id):
