@@ -3,7 +3,7 @@ from time import time
 import discord
 
 
-class Osu:
+class Osu(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.baseurl = 'https://lemmmy.pw/osusig/sig.php?'
