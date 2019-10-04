@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class Math:
+class Math(commands.Cog):
     '''
     Math commands
     '''

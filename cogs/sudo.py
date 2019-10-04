@@ -18,7 +18,7 @@ def is_whitelist():
     return commands.check(predicate)
 
 
-class sudo:
+class sudo(commands.Cog):
     '''
     Developer only commands to make a server suffer
     '''

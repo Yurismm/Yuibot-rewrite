@@ -13,7 +13,7 @@ from random import randint
 
 
 
-class Fun:
+class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.session = self.bot.session

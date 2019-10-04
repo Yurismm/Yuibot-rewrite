@@ -11,7 +11,7 @@ import json
 import os
 
 
-class developer:
+class developer(commands.Cog):
     '''
     developer commands
     '''
