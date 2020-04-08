@@ -20,7 +20,7 @@ bot = commands.Bot(command_prefix='$')
 
 startup_extensions = [
     'cogs.useful',
-    'cogs.config',
+#    'cogs.config',
     'cogs.developer',
     'cogs.Math',
     'cogs.osu'
