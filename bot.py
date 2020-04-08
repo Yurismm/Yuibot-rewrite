@@ -5,7 +5,6 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import re
 import json
 import logging
-import idioticapi
 import random
 from random import randint
 import inspect
@@ -16,35 +15,15 @@ import aiohttp
 import sys
 import time
 
-with open("data/tokens.json") as f:
-    x = json.load(f)
-db = AsyncIOMotorClient(x['MONGODB'])
 
-
-async def getprefix(bot, message):
-    if isinstance(message.channel, discord.DMChannel): return '&'
-    x = await bot.db.config.find_one({"_id": message.guild.id})
-    pre = x['prefix'] if x is not None else '&'
-    match = re.match(f"<@!?{bot.user.id}> ", message.content)
-    return match.group() if match else pre
-
-
-bot = commands.Bot(command_prefix=getprefix)
-bot.db = db.yui
-bot._last_result = None
-logging.basicConfig(level=logging.ERROR)
-bot.session = aiohttp.ClientSession(loop=bot.loop)
-
-
+bot = commands.Bot(command_prefix='$')
 
 startup_extensions = [
     'cogs.useful',
     'cogs.config',
     'cogs.developer',
-    'cogs.Fun',
     'cogs.Math',
-    'cogs.osu',
-    'cogs.sudo',
+    'cogs.osu'
 ]
 
 
@@ -86,7 +65,7 @@ async def on_command_error(ctx, error):
 
 @bot.event
 async def on_guild_join(guild):
-    channel = bot.get_channel(466033489452466186)
+    channel = bot.get_channel(697407857661837322)
     embed = discord.Embed(
         title='New Server!',
         description=f'Server Name: {guild.name} | Server Num {len(bot.guilds)}',
@@ -101,7 +80,7 @@ async def on_guild_join(guild):
 
 @bot.event
 async def on_guild_remove(guild):
-    channel = bot.get_channel(466033489452466186)
+    channel = bot.get_channel(697407857661837322)
     embed = discord.Embed(
         title='Removed from Server',
         description=f'Server Name: {guild.name} | Server Num {len(bot.guilds)}',
@@ -172,10 +151,6 @@ if __name__ == "__main__":
             exc = '{}: {}'.format(type(e).__name__, e)
             print('Failed to load extension {}\n{}'.format(extension, exc))
 
-with open("data/tokens.json") as f:
-    x = json.loads(f.read())
-try:
-    bot.run(x['TOKEN'])
-except Exception as e:
-    print("Could not start the bot. Check the token.")
+bot.run("token hidden for git")
+
 
