@@ -115,7 +115,7 @@ class developer(commands.Cog):
         e = discord.Embed(color=0x00ff00, title='Running code')
         e.description ='Please wait...'
         msg = await ctx.send(embed=e)
-        lol = subprocess.run(f"{code}", cwd='/Users/Administrator/Desktop/Yuibot-rewrite', stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
+        lol = subprocess.run(f"{code}", cwd='/home/ubuntu/yui', stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
         err = lol.stderr.decode("utf-8")
         res = lol.stdout.decode("utf-8")
         em = discord.Embed(color=0x00ff00, title='Ran on the Command Prompt!')
