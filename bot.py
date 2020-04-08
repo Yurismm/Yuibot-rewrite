@@ -60,7 +60,7 @@ async def on_command_error(ctx, error):
     erroremb.add_field(
         name='Location', value=f'#{ctx.channel.name} ({ctx.channel.id})')
 
-    await bot.get_channel(472783730872811529).send(embed=erroremb)
+    await bot.get_channel(697460379265269891).send(embed=erroremb)
 
 
 @bot.event
