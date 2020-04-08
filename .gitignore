@@ -1,4 +1,4 @@
 .vscode
 .vs
-data/tokens.txt
 application.yml
+data/token.txt
