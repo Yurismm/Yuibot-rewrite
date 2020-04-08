@@ -105,6 +105,14 @@ async def invite(ctx):
     embed.set_footer(text="Invite Link")
     await ctx.send(embed=embed)
 
+@bot.command()
+async def help(ctx):
+    embed = discord.Embed(
+        title="Help Commands",
+        description=f"Here is a list of commands that are currently available",
+        color=discord.Color.red())
+    )
+    await channel.send(embed=embed)
 
 @bot.event
 async def on_ready():
