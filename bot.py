@@ -19,7 +19,7 @@ import time
 bot = commands.Bot(command_prefix='$')
 
 startup_extensions = [
-    'cogs.useful',
+#    'cogs.useful',
 #    'cogs.config',
     'cogs.developer',
     'cogs.Math',
