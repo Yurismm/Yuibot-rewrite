@@ -1,6 +1,5 @@
 motor
-git+https://github.com/Rapptz/discord.py@rewrite#egg=discord.py[voice]
-git+https://github.com/freetnt5852/idioticapi
+discord.py
 git+https://github.com/Mariobob/pynite
 git+https://github.com/Nekos-life/nekos.py
 git+https://github.com/anthok/overwatch-api
