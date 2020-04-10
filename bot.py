@@ -23,7 +23,8 @@ startup_extensions = [
 #    'cogs.config',
     'cogs.developer',
     'cogs.Math',
-    'cogs.osu'
+    'cogs.osu',
+    "pas has a small dick"
 ]
 
 
